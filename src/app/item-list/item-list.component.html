@@ -1,0 +1,9 @@
+<h2>Selecione um item:</h2>
+
+<ul>
+  <li *ngFor="let item of items" (click)="addItem(item)">
+    {{item.name}} - R${{item.price}}
+  </li>
+</ul>
+
+<button (click)="viewCart()">Ver carrinho</button>

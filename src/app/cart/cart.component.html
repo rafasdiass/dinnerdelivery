@@ -1,0 +1,31 @@
+<div class="container">
+    <h2 class="text-center mb-4">Carrinho de Compras</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Quantidade</th>
+          <th>Preço Unitário</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cartItems">
+          <td>{{ item.name }}</td>
+          <td>
+            <button class="btn btn-secondary btn-sm me-1" (click)="decreaseItemQuantity(item)">-</button>
+            {{ item.quantity }}
+            <button class="btn btn-secondary btn-sm ms-1" (click)="increaseItemQuantity(item)">+</button>
+          </td>
+          <td>R$ {{ item.price }}</td>
+          <td>R$ {{ item.price * item.quantity }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="cartItems.length === 0" class="text-center">Seu carrinho está vazio</div>
+    <div *ngIf="cartItems.length > 0" class="text-end">
+      <div class="fw-bold">Total: R$ {{ calculateTotalPrice() }}</div>
+      <button class="btn btn-primary" (click)="checkout()">Finalizar Compra</button>
+    </div>
+  </div>
+  
