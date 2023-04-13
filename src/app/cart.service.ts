@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Item } from './item-list';
+// cart.service.ts
+import { Item } from './item-list/item-list.component';
 
 @Injectable({
   providedIn: 'root'
