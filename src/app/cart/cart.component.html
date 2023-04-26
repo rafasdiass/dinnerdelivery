@@ -1,31 +1,40 @@
 <div class="container">
-    <h2 class="text-center mb-4">Carrinho de Compras</h2>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Item</th>
-          <th>Quantidade</th>
-          <th>Preço Unitário</th>
-          <th>Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of cartItems">
-          <td>{{ item.name }}</td>
-          <td>
-            <button class="btn btn-secondary btn-sm me-1" (click)="decreaseItemQuantity(item)">-</button>
-            {{ item.quantity }}
-            <button class="btn btn-secondary btn-sm ms-1" (click)="increaseItemQuantity(item)">+</button>
-          </td>
-          <td>R$ {{ item.price }}</td>
-          <td>R$ {{ item.price * item.quantity }}</td>
-        </tr>
-      </tbody>
-    </table>
-    <div *ngIf="cartItems.length === 0" class="text-center">Seu carrinho está vazio</div>
-    <div *ngIf="cartItems.length > 0" class="text-end">
-      <div class="fw-bold">Total: R$ {{ calculateTotalPrice() }}</div>
-      <button class="btn btn-primary" (click)="checkout()">Finalizar Compra</button>
-    </div>
+  <h2>Carrinho de Compras</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Preço</th>
+        <th>Quantidade</th>
+        <th>Subtotal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of cartItems">
+        <td>{{ item.item.name }}</td>
+        <td>R$ {{ item.item.price | number:'1.2-2' }}</td>
+        <td>
+          <button (click)="decreaseItemQuantity(item)" class="btn btn-outline-primary">-</button>
+          {{ item.quantity }}
+          <button (click)="increaseItemQuantity(item)" class="btn btn-outline-primary">+</button>
+        </td>
+        <td>R$ {{ (item.item.price * item.quantity) | number:'1.2-2' }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <label id="retira-balcao">
+      <input type="radio" name="deliveryOption" (change)="changeDeliveryOption('pickup')" checked>
+      Retirada no balcão
+    </label>
+    <label>
+      <input type="radio" name="deliveryOption" (change)="changeDeliveryOption('delivery')">
+      Entrega (R$ 10,00)
+    </label>
   </div>
-  
+  <div class="text-right">
+    <h3>Total: R$ {{ calculateTotalPrice() | number:'1.2-2' }}</h3>
+    <button (click)="addMoreItems()" class="btn btn-secondary mr-2">Adicionar mais itens</button>
+    <button (click)="checkout()" class="btn btn-primary">Finalizar Compra</button>
+  </div>
+</div>

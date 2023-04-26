@@ -1,46 +1,45 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CartService } from '../cart.service';
-import { Order } from '../order';
 
 @Component({
   selector: 'app-shipping-form',
   templateUrl: './shipping-form.component.html',
-  styleUrls: ['./shipping-form.component.css']
+  styleUrls: ['./shipping-form.component.css'],
 })
 export class ShippingFormComponent implements OnInit {
+  shippingOption: string = 'pickup';
+  name: string = '';
+  whatsapp: string = '';
+  street: string = '';
+  neighborhood: string = '';
+  number: string = '';
+  zipcode: string = '';
+  reference: string = '';
 
-  form: FormGroup;
-
-  constructor(
-    private formBuilder: FormBuilder,
-    private cartService: CartService,
-    private router: Router
-  ) {
-    this.form = this.formBuilder.group({
-      name: ['', Validators.required],
-      address: ['', Validators.required],
-      city: ['', Validators.required],
-      state: ['', Validators.required],
-      zip: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      phone: ['', Validators.required]
-    });
-  }
+  constructor(private cartService: CartService, private router: Router) {}
 
   ngOnInit(): void {
+    this.shippingOption = this.cartService.getShippingOption();
   }
 
-  onSubmit(customerData: any) {
-    const order: Order = {
-      customer: customerData,
-      items: this.cartService.getItems(),
-      total: this.cartService.calculateTotalPrice()
-    };
-    console.warn('Seu pedido foi submetido', order);
-    this.cartService.clearCart();
-    this.form.reset();
-    this.router.navigate(['/']);
+  onSubmit(form: NgForm): void {
+    if (form.valid) {
+      const customerData = {
+        shippingOption: this.shippingOption,
+        name: this.name,
+        whatsapp: this.whatsapp,
+        street: this.street,
+        neighborhood: this.neighborhood,
+        number: this.number,
+        zipcode: this.zipcode,
+        reference: this.reference,
+      };
+      // Lógica para salvar os dados do cliente ou processar o pedido
+
+      this.cartService.clearCart();
+      this.router.navigate(['/payment']);
+    }
   }
 }

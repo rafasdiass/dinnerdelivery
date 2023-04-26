@@ -1,9 +1,41 @@
-<h2>Selecione um item:</h2>
+<div class="container1">
+  <img src="assets/img/colher-choco.svg" id="colher-choco" alt="colher-choco">
+  <form action="d-flex">
+    <input type="search" id="cp-pesquisar" placeholder="Pesquisar" aria-label="Search"/>
+    <button id="btn-pesquisar">
+      <i class="btpesquisa ri-search-eye-line"></i>
+    </button>
+  </form>
+</div> 
 
-<ul>
-  <li *ngFor="let item of items" (click)="addItem(item)">
-    {{item.name}} - R${{item.price}}
-  </li>
-</ul>
+<div class="container2">
+    <div *ngFor="let item of items" class="item">
+      <div class="card border-danger h-100">
+        <div class="img-box product1" [style.background-image]="'url(' + item.imageUrl + ')'"></div>
+        <div class="desc-box">
+            <p class="tituloItem">{{item.name}}</p>
+            <p class="descricaoItem">{{item.description}}</p>
+            <p class="precoItem">Preço: {{item.price}}</p>
+          <button id="addItem" (click)="addItem(item, item.quantity)">Adicionar ao carrinho</button>
+          <div class="item-quantity">
+            <button id="btDiminui" (click)="decreaseQuantity(item)" [disabled]="item.quantity === 0">-</button>
+            <span>{{item.quantity}}</span>
+            <button id="btAumenta" (click)="increaseQuantity(item)" [disabled]="item.quantity === 10">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
 
-<button (click)="viewCart()">Ver carrinho</button>
+<!-- Botão para ir para a próxima página -->
+<div class="btnProximo d-grid gap-2 col-6 mx-auto">
+  <button class="btn btn-danger" type="button">
+    Próximo
+    <i class="bi bi-arrow-right"></i>
+  </button>
+</div>
+
+<app-footer></app-footer>
+
+<!-- Roteador -->
+<router-outlet></router-outlet>

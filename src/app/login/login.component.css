@@ -1,0 +1,138 @@
+/* Estilos gerais */
+* {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* container */
+.container {
+  position: relative;
+  width: 25rem;
+  height: 30rem;
+  margin-top: 3rem;
+  margin-left: 35%;
+}
+
+/* flip */
+.flip {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  
+  transform-style: preserve-3d;
+  transition: 5s;
+}
+
+/* campo do card de login */
+.boxCard, .boxCard2, .boxCard3 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 7px;
+  background-color: #fff;
+  box-shadow: 7.5px 7.5px 30px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 40px;
+  margin-top: 2rem;
+  backface-visibility: hidden;
+}
+
+#clique-aqui,#esqueci-senha{
+cursor: pointer;
+display: inline-block;
+margin-bottom: 20px;
+font-size: 13px;
+color: #555;
+transition: all linear 160ms;
+}
+
+#clique-aqui:hover {
+color: #f72585;
+}
+
+#esqueci-senha:hover {
+color: #f72585;
+}
+
+/* TELA DE CADASTRO */
+
+#titulo-cada{
+  display: flex;
+  margin-top: 0.5rem;
+  margin-bottom: -0.8rem;
+}
+
+#cadastrar2{
+  display: flex;
+  margin-bottom: 0.5rem;
+  height: 2rem;
+}
+
+#clique-aqui2{
+  font-size: 1rem;
+}
+
+/* estilo botões */
+button{
+    width: 11.8rem;
+    height: 2.5rem;
+    background-color: #b64040;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    border: none !important;
+    transition: all linear 160ms;
+    cursor: pointer;
+    margin: 0 !important;
+    border-radius: 4px;
+}
+button:hover {
+  background-color: #532525;
+  transform: scale(1.05);
+}
+
+/* campos formulario */
+input {
+  padding: 0.5rem;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+  margin-bottom: 1.2rem;
+  border-radius: 4px;
+  transition: all linear 160ms;
+  outline: none;
+}
+
+input:focus {
+  border: 1px solid #c02727;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+.rotate {
+  animation-name: rotate;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: backwards;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(180deg);
+  }
+}
+.rotate-back {
+  transform: rotateY(180deg);
+}
