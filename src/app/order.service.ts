@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class OrderService {
-  private apiUrl = 'http://34.227.223.49'; // Atualize para o domínio da sua API
+  private apiUrl = 'http://34.227.223.49';
 
   constructor(private http: HttpClient) {}
 
@@ -14,6 +14,8 @@ export class OrderService {
     const headers = new HttpHeaders({
       'Authorization': 'Bearer ' + localStorage.getItem('token')
     });
+
+    console.log('Token enviado:', headers.get('Authorization'));
 
     return this.http.post<any>(`${this.apiUrl}/orders`, orderData, { headers });
   }

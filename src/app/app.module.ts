@@ -20,8 +20,10 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AuthInterceptor } from './auth.interceptor';
 
-// Importe o OrderService aqui
 import { OrderService } from './order.service';
+
+// Importações do angularx-social-login
+import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from 'angularx-social-login';
 
 @NgModule({
   declarations: [
@@ -43,11 +45,23 @@ import { OrderService } from './order.service';
     ReactiveFormsModule,
     FontAwesomeModule,
     HttpClientModule,
+    SocialLoginModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-    // Adicione o OrderService aos providers
     OrderService,
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider('YOUR_GOOGLE_CLIENT_ID'),
+          },
+        ],
+      } as SocialAuthServiceConfig,
+    },
   ],
   bootstrap: [AppComponent],
 })

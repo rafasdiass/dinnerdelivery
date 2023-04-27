@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { SocialAuthService, GoogleLoginProvider } from 'angularx-social-login';
 
 @Component({
   selector: 'app-login',
@@ -7,7 +8,7 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private socialAuthService: SocialAuthService) {}
 
   loginEmail: string = '';
   loginPassword: string = '';
@@ -51,6 +52,12 @@ export class LoginComponent {
     );
   }
 
+  signInWithGoogle(): void {
+    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then((user) => {
+      console.log('Usuário do Google:', user);
+      // Implemente o processo de autenticação com seu back-end aqui
+    });
+  }
 
   onPassword2Blur(): void {
     if (this.registerPassword !== this.registerPassword2) {
