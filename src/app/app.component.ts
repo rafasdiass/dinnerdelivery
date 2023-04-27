@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CartService } from './cart.service';
 import { Subscription } from 'rxjs';
+import { Order } from './order';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,7 @@ import { Subscription } from 'rxjs';
 export class AppComponent implements OnInit, OnDestroy {
   title = 'dinnerdelivery';
   totalItems: number = 0;
+  currentOrder: Order | null = null;
   private cartChangedSubscription: Subscription | null;
 
   constructor(private cartService: CartService) {
@@ -27,5 +29,9 @@ export class AppComponent implements OnInit, OnDestroy {
     if (this.cartChangedSubscription) {
       this.cartChangedSubscription.unsubscribe();
     }
+  }
+
+  orderPlaced(order: Order): void {
+    this.currentOrder = order;
   }
 }

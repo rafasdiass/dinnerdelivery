@@ -1,0 +1,26 @@
+<div class="order-summary">
+    <h2>Resumo do Pedido</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Quantidade</th>
+          <th>Preço</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cartItem of cartItems">
+          <td>{{ cartItem.item.name }}</td>
+          <td>{{ cartItem.quantity }}</td>
+          <td>{{ cartItem.item.price | currency }}</td>
+          <td>{{ cartItem.getTotalPrice() | currency }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="total">
+      <strong>Total: {{ getTotal() | currency }}</strong>
+    </div>
+    <button (click)="onPrint()">Imprimir Pedido</button>
+  </div>
+  

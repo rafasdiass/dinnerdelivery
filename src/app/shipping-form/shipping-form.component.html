@@ -1,28 +1,30 @@
-<form #shippingForm="ngForm" (ngSubmit)="onSubmit(shippingForm)">
+<form [formGroup]="shippingForm">
   <label for="name">Nome:</label>
-  <input type="text" id="name" name="name" [(ngModel)]="name" required />
+  <input type="text" id="name" name="name" formControlName="name" required />
   <br />
   <label for="whatsapp">WhatsApp:</label>
-  <input type="text" id="whatsapp" name="whatsapp" [(ngModel)]="whatsapp" required />
+  <input type="text" id="whatsapp" name="whatsapp" formControlName="whatsapp" required />
   <br />
 
-  <div *ngIf="shippingOption === 'delivery'">
+  <div *ngIf="shippingForm.controls['shippingOption'].value === 'delivery'">
     <label for="street">Rua:</label>
-    <input type="text" id="street" name="street" [(ngModel)]="street" required />
+    <input type="text" id="street" name="street" formControlName="street" required />
     <br />
     <label for="neighborhood">Bairro:</label>
-    <input type="text" id="neighborhood" name="neighborhood" [(ngModel)]="neighborhood" required />
+    <input type="text" id="neighborhood" name="neighborhood" formControlName="neighborhood" required />
     <br />
     <label for="number">Número:</label>
-    <input type="text" id="number" name="number" [(ngModel)]="number" required />
+    <input type="text" id="number" name="number" formControlName="number" required />
     <br />
     <label for="zipcode">CEP:</label>
-    <input type="text" id="zipcode" name="zipcode" [(ngModel)]="zipcode" required />
+    <input type="text" id="zipcode" name="zipcode" formControlName="zipcode" required pattern="[0-9]{5}-[0-9]{3}" />
     <br />
     <label for="reference">Ponto de referência:</label>
-    <input type="text" id="reference" name="reference" [(ngModel)]="reference" />
+    <input type="text" id="reference" name="reference" formControlName="reference" />
     <br />
   </div>
 
-  <button type="submit">Continuar</button>
+  <button type="button" (click)="showOrderSummary()">Mostrar Resumo do Pedido</button>
 </form>
+
+<app-order-summary *ngIf="orderSummaryVisible" [cartItems]="cartItems"></app-order-summary>
