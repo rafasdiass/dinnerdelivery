@@ -1,0 +1,28 @@
+<div class="payment-form">
+  <h3>Forma de pagamento</h3>
+  <form [formGroup]="paymentForm" (ngSubmit)="onCheckoutClick()">
+    <label for="name">Nome:</label>
+    <input type="text" id="name" formControlName="name" />
+    <br />
+    <label for="whatsapp">WhatsApp:</label>
+    <input type="text" id="whatsapp" formControlName="whatsapp" />
+    <br />
+
+    <label for="address">Endereço:</label>
+    <input type="text" id="address" formControlName="address" [disabled]="paymentForm.get('shippingOption')?.value === 'pickup'" />
+    <br />
+    <label for="reference">Referência:</label>
+    <input type="text" id="reference" formControlName="reference" [disabled]="paymentForm.get('shippingOption')?.value === 'pickup'" />
+    <br />
+
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="paymentMethod" id="pix" value="pix" formControlName="paymentMethod">
+      <label class="form-check-label" for="pix">Pix</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="paymentMethod" id="cardOnDelivery" value="cardOnDelivery" formControlName="paymentMethod">
+      <label class="form-check-label" for="cardOnDelivery">Cartão na entrega</label>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!paymentForm.get('paymentMethod')?.value">Finalizar Compra</button>
+  </form>
+</div>

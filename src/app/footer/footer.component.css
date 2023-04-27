@@ -1,0 +1,61 @@
+/* Estilos gerais */
+* {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.rodape {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 14rem;
+  background-color: #a52a2a73;
+  align-items: center;
+  justify-items: center;
+  flex-direction: column;
+  color: #ffffff;
+  margin-top: 7rem;
+}
+
+/* Contato no rodapé */
+#contato {
+  margin-top: 0.8rem;
+  font-size: 2rem;
+}
+
+.dados-contato{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 0.5rem;
+}
+
+/* Rede social no rodapé */
+.rede-social {
+  margin-top: 1.3rem;
+  margin-bottom: 1.2rem;
+}
+
+/* Copyright no rodapé */
+#Copyright {
+  font-size: 12px;
+}
+
+/* Efeito de hover nos links */
+a:hover {
+  filter: brightness(0.55);
+}
+
+/* Espaçamento entre ícones de links */
+a {
+  padding: 8px 7px;
+  color: #ffffff;
+}
+
+/* Estilo dos links das redes sociais */
+.links {
+  text-decoration: none;
+  cursor: pointer;
+}

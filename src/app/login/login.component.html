@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="flip" [ngClass]="{'flipped': !isLoginView}">
+    <!-- Início do formulário de login -->
+    <div class="boxCard" *ngIf="isLoginView">
+      <h2>Login</h2>
+      <br>
+      <form (ngSubmit)="onLoginSubmit()">
+        <input type="email" id="email" name="email" [(ngModel)]="loginEmail" required placeholder="E-mail"/>
+        <br>
+        <input type="password" id="password" name="password" [(ngModel)]="loginPassword" required placeholder="Senha"/>
+        <br>
+        <button type="submit">Entrar</button>
+        <button (click)="signInWithGoogle()" class="btn btn-primary">Entrar com o Google</button>
+      </form>
+      <a id="esqueci-senha">Esqueci minha senha</a>
+
+      <div id="box-message">
+        Ainda não tem cadastro?
+        <a id="clique-aqui" (click)="toggleView()">Clique aqui</a>
+      </div>
+    </div>
+    <!-- Fim do formulário de login -->
+
+    <!-- Início do formulário de cadastro -->
+    <div class="boxCard2" *ngIf="!isLoginView">
+      <h2 id="titulo-cada">Cadastro</h2>
+      <br>
+      <form (ngSubmit)="onRegisterSubmit()">
+        <input type="text" id="registerName" name="registerName" [(ngModel)]="registerName" placeholder="Nome">
+        <br />
+        <input type="email" id="registerEmail" name="registerEmail" [(ngModel)]="registerEmail" required placeholder="E-mail"/>
+        <br />
+        <input type="password" id="registerPassword" name="registerPassword" [(ngModel)]="registerPassword" required placeholder="Senha" />
+        <br />
+        <input (blur)="onPassword2Blur()" type="password" id="registerPassword2" name="registerPassword2" [(ngModel)]="registerPassword2" required placeholder="Confirmar senha" />
+        <br />
+        <input type="text" id="registerAddress" name="registerAddress" [(ngModel)]="registerAddress" placeholder="Endereço">
+        <br />
+        <div id="cadastrar2">
+          <button type="submit" >Cadastrar</button>
+        </div>
+      </form>
+      <div >
+        Já tem cadastro?
+        <a id="clique-aqui" (click)="toggleView(); onFlip()">Clique aqui</a>
+      </div>
+    </div>
+    <!-- Fim do formulário de cadastro -->
+  </div>
+</div>
+
+<app-footer></app-footer>
