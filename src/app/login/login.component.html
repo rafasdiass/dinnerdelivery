@@ -10,6 +10,7 @@
         <input type="password" id="password" name="password" [(ngModel)]="loginPassword" required placeholder="Senha"/>
         <br>
         <button type="submit">Entrar</button>
+        <button (click)="signInWithGoogle()" class="btn btn-primary">Entrar com o Google</button>
       </form>
       <a id="esqueci-senha">Esqueci minha senha</a>
 
@@ -49,4 +50,3 @@
 </div>
 
 <app-footer></app-footer>
-
