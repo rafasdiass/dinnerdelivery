@@ -36,6 +36,9 @@ export class ShippingFormComponent implements OnInit {
       street: ['', Validators.required],
       neighborhood: ['', Validators.required],
       number: ['', Validators.required],
+      city: ['', Validators.required], // Adicione esta linha
+      state: ['', Validators.required], // Adicione esta linha
+      country: ['', Validators.required], // Adicione esta linha
       zipcode: ['', [Validators.required, Validators.pattern('[0-9]{5}-[0-9]{3}')]],
       reference: [''],
     });
@@ -50,38 +53,33 @@ export class ShippingFormComponent implements OnInit {
         street: this.shippingForm.value.street,
         neighborhood: this.shippingForm.value.neighborhood,
         number: this.shippingForm.value.number,
+        city: this.shippingForm.value.city, // Adicione esta linha
+        state: this.shippingForm.value.state, // Adicione esta linha
+        country: this.shippingForm.value.country, // Adicione esta linha
         zipcode: this.shippingForm.value.zipcode,
         reference: this.shippingForm.value.reference,
         cartItems: this.cartItems,
         totalPrice: this.getTotalPrice(),
       };
-      this.tempStorageService.setOrderData(this.cartItems, this.shippingForm.value);
+      // Remova a linha abaixo
+      // this.tempStorageService.setOrderData(this.cartItems, this.shippingForm.value);
       this.orderService.createOrder(order).subscribe((createdOrder: Order) => {
         this.orderPlaced = true;
         this.currentOrder = createdOrder;
         console.log('Order placed', createdOrder);
-        this.showOrderSummary(); // Adicionado aqui
+        this.showOrderSummary(); // Mova esta linha para dentro do subscribe
       });
     } else {
       console.log('Form is not valid.');
     }
   }
-  
+
   showOrderSummary(): void {
     this.orderSummaryVisible = true;
-    this.router.navigate(['/order-summary']); // Navegue até a rota '/order-summary'
+    this.router.navigateByUrl('/order-summary');
   }
 
   getTotalPrice(): number {
     return this.cartItems.reduce((acc, item) => acc + item.getTotalPrice(), 0);
-  }
-
-  handleShowOrderSummaryClick(): void {
-    const orderData = this.tempStorageService.getOrderData(); // Atualizado para getOrderData
-    if (orderData) {
-      this.currentOrder = orderData;
-      this.orderSummaryVisible = true;
-      this.tempStorageService.clearOrderData(); // Atualizado para clearOrderData
-    }
   }
 }

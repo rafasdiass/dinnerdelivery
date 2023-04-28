@@ -1,18 +1,30 @@
-<div *ngIf="order">
-  <h3>Resumo do pedido</h3>
-  <p>Nome: {{ order.name }}</p>
-  <p>Whatsapp: {{ order.whatsapp }}</p>
-  <p>Rua: {{ order.street }}</p>
-  <p>Bairro: {{ order.neighborhood }}</p>
-  <p>Número: {{ order.number }}</p>
-  <p>CEP: {{ order.zipcode }}</p>
-  <p *ngIf="order.reference">Referência: {{ order.reference }}</p>
-  <h4>Itens do pedido</h4>
-  <ul>
-    <li *ngFor="let cartItem of cartItems">
-      {{ cartItem.item.name }} - {{ cartItem.quantity }} x R$ {{ cartItem.item.price }}
-    </li>
-  </ul>
-  <p>Total: R$ {{ getTotal() }}</p>
+<div *ngIf="order; else noOrderData">
+  <h1>Resumo do Pedido</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Preço Unitário</th>
+        <th>Quantidade</th>
+        <th>Preço Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cartItem of cartItems">
+        <td>{{ cartItem.item.name }}</td>
+        <td>{{ cartItem.item.price | currency:'BRL' }}</td>
+        <td>{{ cartItem.quantity }}</td>
+        <td>{{ cartItem.item.price * cartItem.quantity | currency:'BRL' }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>
+    Total do Pedido: <strong>{{ getTotal() | currency:'BRL' }}</strong>
+  </p>
   <button (click)="onPrint()">Imprimir</button>
 </div>
+
+<ng-template #noOrderData>
+  <h1>Não há dados do pedido disponíveis.</h1>
+  <p>Por favor, preencha e envie o formulário de envio para visualizar o resumo do pedido.</p>
+</ng-template>

@@ -5,12 +5,15 @@ export interface Order {
   whatsapp: string;
   shippingOption: string;
   street: string;
-  neighborhood: string;
   number: string;
-  zipcode: string;
-  reference: string;
+  neighborhood: string;
+  city: string;
+  state: string;
+  country: string;
   cartItems: CartItem[];
-  totalPrice: number;
+  zipcode: string; // Adicione esta linha
+  reference: string; // Adicione esta linha
+  totalPrice: number; // Adicione esta linha
 }
 
 export class CartItem {
