@@ -8,15 +8,18 @@ import { Observable } from 'rxjs';
 export class OrderService {
   private apiUrl = 'http://34.227.223.49';
 
-  constructor(private http: HttpClient) {}
+//Injetando serviço HttpClient no contrutor
+constructor(private http: HttpClient) {}
+//Método que realiza requisição HTTP
+createOrder(orderData: any): Observable<any> {
+  const headers = new HttpHeaders({
+    'Authorization': 'Bearer ' + localStorage.getItem('token')
+    
+  });
 
-  createOrder(orderData: any): Observable<any> {
-    const headers = new HttpHeaders({
-      'Authorization': 'Bearer ' + localStorage.getItem('token')
-    });
+  console.log('Token enviado:', headers.get('Authorization'));
 
-    console.log('Token enviado:', headers.get('Authorization'));
+  return this.http.post<any>(`${this.apiUrl}/orders`, orderData, { headers });
 
-    return this.http.post<any>(`${this.apiUrl}/orders`, orderData, { headers });
   }
 }

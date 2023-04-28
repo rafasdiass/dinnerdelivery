@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CartService } from '../cart.service';
+import { OrderService } from '../order.service';
 
 @Component({
   selector: 'app-shipping-form',
@@ -11,14 +12,14 @@ import { CartService } from '../cart.service';
 export class ShippingFormComponent implements OnInit {
   shippingOption: string = 'pickup';
   name: string = '';
-  whatsapp: string = '';
+  celular: string = '';
   street: string = '';
   neighborhood: string = '';
   number: string = '';
   zipcode: string = '';
   reference: string = '';
 
-  constructor(private cartService: CartService, private router: Router) {}
+  constructor(private cartService: CartService, private router: Router, private orderService: OrderService) {}
 
   ngOnInit(): void {
     this.shippingOption = this.cartService.getShippingOption();
@@ -29,17 +30,28 @@ export class ShippingFormComponent implements OnInit {
       const customerData = {
         shippingOption: this.shippingOption,
         name: this.name,
-        whatsapp: this.whatsapp,
+        celular: this.celular,
         street: this.street,
         neighborhood: this.neighborhood,
         number: this.number,
         zipcode: this.zipcode,
         reference: this.reference,
       };
-      // Lógica para salvar os dados do cliente ou processar o pedido
-
-      this.cartService.clearCart();
-      this.router.navigate(['/payment']);
+     
+          // Chama o método createOrder do OrderService para enviar os dados do pedido ao back-end
+          this.orderService.createOrder(customerData).subscribe(
+            (response) => {
+              console.log('Pedido enviado com sucesso:', response);
+              // Redireciona para a página de confirmação de pagamento
+              this.cartService.clearCart();
+              this.router.navigate(['/payment']);
+            },
+            (error) => {
+              console.error('Erro ao enviar pedido:', error);
+              // Trata o erro
+              // ...
+            }
+          );
     }
   }
   mostrarCampoDinheiro() {
@@ -56,5 +68,3 @@ export class ShippingFormComponent implements OnInit {
     }
   }
 }
- 
-
