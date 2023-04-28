@@ -10,6 +10,7 @@ import { PaymentFormComponent } from './payment-form/payment-form.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component'; // Verifique se o caminho está correto
+import { OrderSummaryComponent } from './order-summary/order-summary.component'; // Importação do componente OrderSummaryComponent
 
 // Definição das rotas da aplicação
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'payment', component: PaymentFormComponent }, // Rota para o componente PaymentFormComponent
   { path: 'login', component: LoginComponent }, // Rota para o componente LoginComponent
   { path: 'forgot-password', component: ForgotPasswordComponent }, // Rota para o componente ForgotPasswordComponent
+  { path: 'order-summary', component: OrderSummaryComponent }, // Rota para o componente OrderSummaryComponent
   { path: '**', redirectTo: '/login', pathMatch: 'full' }, // Redireciona para a tela de login caso a rota não seja encontrada
 ];
 

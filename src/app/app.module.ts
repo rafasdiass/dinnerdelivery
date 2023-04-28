@@ -8,7 +8,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { ItemListComponent } from '../app/item-list/item-list.component';
+import { ItemListComponent } from './item-list/item-list.component';
 import { CartComponent } from './cart/cart.component';
 import { ShippingFormComponent } from './shipping-form/shipping-form.component';
 import { PaymentFormComponent } from './payment-form/payment-form.component';
@@ -21,10 +21,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AuthInterceptor } from './auth.interceptor';
 
 import { OrderService } from './order.service';
+import { TempStorageService } from './temp-storage.service';
+import { OrderSummaryComponent } from './order-summary/order-summary.component';
 
 // Importações do angularx-social-login
 import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from 'angularx-social-login';
-import { OrderSummaryComponent } from './order-summary/order-summary.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { OrderSummaryComponent } from './order-summary/order-summary.component';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     OrderService,
+    TempStorageService,
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {

@@ -24,7 +24,5 @@
     <br />
   </div>
 
-  <button type="button" (click)="showOrderSummary()">Mostrar Resumo do Pedido</button>
+  <a routerLink="/order-summary" class="btn btn-outline-primary">Mostrar Resumo</a>
 </form>
-
-<app-order-summary *ngIf="orderSummaryVisible" [cartItems]="cartItems"></app-order-summary>
