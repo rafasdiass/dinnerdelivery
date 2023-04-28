@@ -1,3 +1,4 @@
+// app.component.ts
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CartService } from './cart.service';
 import { Subscription } from 'rxjs';
@@ -16,6 +17,7 @@ export class AppComponent implements OnInit, OnDestroy {
   currentOrder: Order | null = null;
   orderSummaryVisible = false;
   private cartChangedSubscription: Subscription | null;
+  
 
   constructor(private cartService: CartService) {
     this.cartChangedSubscription = null;
@@ -37,6 +39,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   orderPlaced(order: Order): void {
     this.currentOrder = order;
+    
   }
 
   showOrderSummary(order: Order): void {
@@ -44,7 +47,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.currentOrder = order;
   }
 
-  handleShowOrderSummary(): void {
+  onShowOrderSummary(): void { // Adicionado aqui
     this.orderSummaryVisible = !this.orderSummaryVisible;
   }
 }

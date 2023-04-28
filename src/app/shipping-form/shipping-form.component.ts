@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CartItem } from '../item-list/cart-item.model';
@@ -18,9 +18,6 @@ export class ShippingFormComponent implements OnInit {
   orderPlaced = false;
   orderSummaryVisible = false;
   currentOrder: Order | null = null;
-
-  @Output() orderPlacedEvent = new EventEmitter<Order>();
-  @Output() showOrderSummaryEvent = new EventEmitter<void>();
 
   constructor(
     private fb: FormBuilder,
@@ -58,16 +55,21 @@ export class ShippingFormComponent implements OnInit {
         cartItems: this.cartItems,
         totalPrice: this.getTotalPrice(),
       };
-      this.tempStorageService.setOrderData(this.cartItems, this.shippingForm.value); // Atualizado aqui
+      this.tempStorageService.setOrderData(this.cartItems, this.shippingForm.value);
       this.orderService.createOrder(order).subscribe((createdOrder: Order) => {
         this.orderPlaced = true;
         this.currentOrder = createdOrder;
-        this.orderPlacedEvent.emit(createdOrder);
         console.log('Order placed', createdOrder);
+        this.showOrderSummary(); // Adicionado aqui
       });
     } else {
       console.log('Form is not valid.');
     }
+  }
+  
+  showOrderSummary(): void {
+    this.orderSummaryVisible = true;
+    this.router.navigate(['/order-summary']); // Navegue até a rota '/order-summary'
   }
 
   getTotalPrice(): number {
@@ -79,7 +81,6 @@ export class ShippingFormComponent implements OnInit {
     if (orderData) {
       this.currentOrder = orderData;
       this.orderSummaryVisible = true;
-      this.showOrderSummaryEvent.emit();
       this.tempStorageService.clearOrderData(); // Atualizado para clearOrderData
     }
   }
