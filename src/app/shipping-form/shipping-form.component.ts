@@ -12,12 +12,13 @@ import { OrderService } from '../order.service';
 export class ShippingFormComponent implements OnInit {
   shippingOption: string = 'pickup';
   name: string = '';
-  celular: string = '';
   street: string = '';
   neighborhood: string = '';
   number: string = '';
   zipcode: string = '';
   reference: string = '';
+  valorDinheiro: string = '';
+  trocoDinheiro: string = '';
 
   constructor(private cartService: CartService, private router: Router, private orderService: OrderService) {}
 
@@ -30,12 +31,13 @@ export class ShippingFormComponent implements OnInit {
       const customerData = {
         shippingOption: this.shippingOption,
         name: this.name,
-        celular: this.celular,
+        number: this.number,
         street: this.street,
         neighborhood: this.neighborhood,
-        number: this.number,
         zipcode: this.zipcode,
         reference: this.reference,
+        valorDinheiro: this.valorDinheiro,
+        trocoDinheiro: this.trocoDinheiro,
       };
      
           // Chama o método createOrder do OrderService para enviar os dados do pedido ao back-end
