@@ -26,8 +26,8 @@
 /* Posição e tamanho dos ícones da barra de navegação */
 .cart-login {
   position: fixed;
-  top: 10px;
-  right: 10px;
+  top: 1rem;
+  right: 2rem;
   font-size: 24px;
 }
 
