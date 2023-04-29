@@ -1,16 +1,15 @@
-<form (submit)="addProduct()">
-    <label for="name">Nome:</label>
-    <input type="text" id="name" [(ngModel)]="newProduct.name" required>
-  
-    <label for="description">Descrição:</label>
-    <textarea id="description" [(ngModel)]="newProduct.description"></textarea>
-  
-    <label for="price">Preço:</label>
-    <input type="number" id="price" [(ngModel)]="newProduct.price" required>
-  
-    <label for="image">Imagem:</label>
-    <input type="text" id="image" [(ngModel)]="newProduct.imageUrl">
-  
-    <button type="submit">Cadastrar</button>
-  </form>
-  
+<form #productForm="ngForm" (ngSubmit)="addProduct(productForm)">
+  <label for="name">Nome:</label>
+  <input type="text" id="name" name="name" [(ngModel)]="newProduct.name" required>
+
+  <label for="description">Descrição:</label>
+  <textarea id="description" name="description" [(ngModel)]="newProduct.description"></textarea>
+
+  <label for="price">Preço:</label>
+  <input type="number" id="price" name="price" [(ngModel)]="newProduct.price" required>
+
+  <label for="image">Imagem:</label>
+  <input type="text" id="image" name="image" [(ngModel)]="newProduct.imageUrl">
+
+  <button type="submit" [disabled]="!productForm.valid">Cadastrar</button>
+</form>
