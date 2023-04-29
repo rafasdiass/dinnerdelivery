@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CartService } from './cart.service';
 import { Subscription } from 'rxjs';
+import { RegisterProductComponent } from "./register-product/register-product.component"; // Correção da importação Felipe
 
 @Component({
   selector: 'app-root',
