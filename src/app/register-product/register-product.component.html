@@ -1,15 +1,24 @@
-<form #productForm="ngForm" (ngSubmit)="addProduct(productForm)">
-  <label for="name">Nome:</label>
-  <input type="text" id="name" name="name" [(ngModel)]="newProduct.name" required>
+<div class="form-container">
+  <form #productForm="ngForm" (ngSubmit)="addProduct(productForm)">
+  <div class="input-group">
+    <span class="input-group-text"><i class="bi bi-card-text icon-name"></i></span>
+    <input type="text" id="name" name="name" [(ngModel)]="newProduct.name" class="form-control" placeholder="Nome" required>
+  </div>
 
-  <label for="description">Descrição:</label>
-  <textarea id="description" name="description" [(ngModel)]="newProduct.description"></textarea>
+  <div class="input-group">
+    <span class="input-group-text"><i class="bi bi-pencil-square icon-description"></i></span>
+    <textarea id="description" name="description" [(ngModel)]="newProduct.description" class="form-control" placeholder="Descrição"></textarea>
+  </div>
 
-  <label for="price">Preço:</label>
-  <input type="number" id="price" name="price" [(ngModel)]="newProduct.price" required>
+  <div class="input-group">
+    <span class="input-group-text"><i class="bi bi-cash icon-price"></i></span>
+    <input type="number" id="price" name="price" [(ngModel)]="newProduct.price" class="form-control" placeholder="Preço" required>
+  </div>
 
-  <label for="image">Imagem:</label>
-  <input type="text" id="image" name="image" [(ngModel)]="newProduct.imageUrl">
+  <div class="input-group">
+    <span class="input-group-text"><i class="bi bi-image icon-image"></i></span>
+    <input type="text" id="image" name="image" [(ngModel)]="newProduct.imageUrl" class="form-control" placeholder="URL da Imagem">
+  </div>
 
   <button type="submit" [disabled]="!productForm.valid">Cadastrar</button>
 </form>
