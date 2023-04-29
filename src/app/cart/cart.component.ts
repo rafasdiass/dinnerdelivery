@@ -15,6 +15,7 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.cartItems = this.cartService.getCartItems();
+    
   }
 
   changeDeliveryOption(option: string): void {
@@ -29,6 +30,8 @@ export class CartComponent implements OnInit {
     this.cartService.increaseItemQuantity(cartItem.item);
   }
 
+
+  
   calculateTotalPrice(): number {
     let total = 0;
   

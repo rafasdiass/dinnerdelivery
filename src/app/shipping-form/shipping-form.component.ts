@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CartItem } from '../item-list/cart-item.model';
 import { CartService } from '../cart.service';
-import { Order } from '../order';
 import { OrderService } from '../order.service';
-import { TempStorageService } from '../temp-storage.service';
 
 @Component({
   selector: 'app-shipping-form',
@@ -13,73 +10,63 @@ import { TempStorageService } from '../temp-storage.service';
   styleUrls: ['./shipping-form.component.css'],
 })
 export class ShippingFormComponent implements OnInit {
-  shippingForm!: FormGroup;
-  cartItems: CartItem[] = [];
-  orderPlaced = false;
-  orderSummaryVisible = false;
-  currentOrder: Order | null = null;
+  shippingOption: string = 'pickup';
+  name: string = '';
+  street: string = '';
+  neighborhood: string = '';
+  number: string = '';
+  zipcode: string = '';
+  reference: string = '';
+  valorDinheiro: string = '';
+  trocoDinheiro: string = '';
 
-  constructor(
-    private fb: FormBuilder,
-    private cartService: CartService,
-    private orderService: OrderService,
-    private router: Router,
-    private tempStorageService: TempStorageService
-  ) {}
+  constructor(private cartService: CartService, private router: Router, private orderService: OrderService) {}
 
   ngOnInit(): void {
-    this.cartItems = this.cartService.getCartItems();
-    this.shippingForm = this.fb.group({
-      name: ['', Validators.required],
-      whatsapp: ['', Validators.required],
-      shippingOption: ['delivery', Validators.required],
-      street: ['', Validators.required],
-      neighborhood: ['', Validators.required],
-      number: ['', Validators.required],
-      city: ['', Validators.required], // Adicione esta linha
-      state: ['', Validators.required], // Adicione esta linha
-      country: ['', Validators.required], // Adicione esta linha
-      zipcode: ['', [Validators.required, Validators.pattern('[0-9]{5}-[0-9]{3}')]],
-      reference: [''],
-    });
+    this.shippingOption = this.cartService.getShippingOption();
   }
 
-  placeOrder(): void {
-    if (this.shippingForm.valid) {
-      const order: Order = {
-        name: this.shippingForm.value.name,
-        whatsapp: this.shippingForm.value.whatsapp,
-        shippingOption: this.shippingForm.value.shippingOption,
-        street: this.shippingForm.value.street,
-        neighborhood: this.shippingForm.value.neighborhood,
-        number: this.shippingForm.value.number,
-        city: this.shippingForm.value.city, // Adicione esta linha
-        state: this.shippingForm.value.state, // Adicione esta linha
-        country: this.shippingForm.value.country, // Adicione esta linha
-        zipcode: this.shippingForm.value.zipcode,
-        reference: this.shippingForm.value.reference,
-        cartItems: this.cartItems,
-        totalPrice: this.getTotalPrice(),
+  onSubmit(form: NgForm): void {
+    if (form.valid) {
+      const customerData = {
+        shippingOption: this.shippingOption,
+        name: this.name,
+        number: this.number,
+        street: this.street,
+        neighborhood: this.neighborhood,
+        zipcode: this.zipcode,
+        reference: this.reference,
+        valorDinheiro: this.valorDinheiro,
+        trocoDinheiro: this.trocoDinheiro,
       };
-      // Remova a linha abaixo
-      // this.tempStorageService.setOrderData(this.cartItems, this.shippingForm.value);
-      this.orderService.createOrder(order).subscribe((createdOrder: Order) => {
-        this.orderPlaced = true;
-        this.currentOrder = createdOrder;
-        console.log('Order placed', createdOrder);
-        this.showOrderSummary(); // Mova esta linha para dentro do subscribe
-      });
-    } else {
-      console.log('Form is not valid.');
+     
+          // Chama o método createOrder do OrderService para enviar os dados do pedido ao back-end
+          this.orderService.createOrder(customerData).subscribe(
+            (response) => {
+              console.log('Pedido enviado com sucesso:', response);
+              // Redireciona para a página de confirmação de pagamento
+              this.cartService.clearCart();
+              this.router.navigate(['/payment']);
+            },
+            (error) => {
+              console.error('Erro ao enviar pedido:', error);
+              // Trata o erro
+              // ...
+            }
+          );
     }
   }
-
-  showOrderSummary(): void {
-    this.orderSummaryVisible = true;
-    this.router.navigateByUrl('/order-summary');
-  }
-
-  getTotalPrice(): number {
-    return this.cartItems.reduce((acc, item) => acc + item.getTotalPrice(), 0);
+  mostrarCampoDinheiro() {
+    const select: HTMLSelectElement = document.getElementById("forma-pagamento") as HTMLSelectElement;
+    const campoDinheiro = document.getElementById("campo-dinheiro") as HTMLElement; // Usando type assertion para informar que o elemento sempre existira no DOM
+  
+    if (select.value == "dinheiro") {
+      campoDinheiro.style.display = "block";
+    } else {
+      campoDinheiro.style.display = "none";
+    }
+    if (select.value == "") {
+      campoDinheiro.style.display = "none";
+    }
   }
 }

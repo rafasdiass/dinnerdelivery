@@ -1,19 +1,31 @@
 import { Item } from './item-list/item.model';
 
-export interface Order {
-  name: string;
-  whatsapp: string;
-  shippingOption: string;
-  street: string;
-  number: string;
-  neighborhood: string;
-  city: string;
-  state: string;
-  country: string;
-  cartItems: CartItem[];
-  zipcode: string; // Adicione esta linha
-  reference: string; // Adicione esta linha
-  totalPrice: number; // Adicione esta linha
+export class Order {
+  name: string = '';
+  email: string = '';
+  address: string = '';
+  city: string = '';
+  state: string = '';
+  zip: string = '';
+  cardNumber: string = '';
+  cardExpiration: string = '';
+  cardSecurityCode: string = '';
+  cartItems: CartItem[] = [];
+
+  constructor() {}
+
+  addItem(item: Item, quantity: number): void {
+    let cartItem = new CartItem(item, quantity);
+    this.cartItems.push(cartItem);
+  }
+
+  getTotalPrice(): number {
+    let totalPrice = 0;
+    for (let cartItem of this.cartItems) {
+      totalPrice += cartItem.item.price * cartItem.quantity;
+    }
+    return totalPrice;
+  }
 }
 
 export class CartItem {

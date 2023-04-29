@@ -1,0 +1,94 @@
+/* Estilos gerais */
+* {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* container */
+  .container {
+    position: absolute;
+    width: auto;
+    height: 30rem;
+    margin-top: 6rem;
+    display: flex;
+    flex-direction: row;
+    margin-left: 5rem;
+  }
+  .formulario{
+    display: flex;
+    margin-left: 40%;
+  }
+
+/* estilo botões */
+button{
+    width: 11.8rem;
+    height: 2.5rem;
+    background-color: #b64040;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    border: none !important;
+    transition: all linear 160ms;
+    cursor: pointer;
+    margin: 0 !important;
+    border-radius: 4px;
+}
+
+button:hover {
+  background-color: #532525;
+  transform: scale(1.05);
+}
+
+/* campos formulario */
+input {
+    width: 19rem;
+    padding: 0.5rem;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+    margin-bottom: 1.2rem;
+    border-radius: 4px;
+    transition: all linear 160ms;
+    outline: none;
+  }
+  
+  select,input:focus {
+    border: 1px solid #c02727;
+  }
+  
+  label {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  style{
+    height: 14px;
+  }
+  
+  #btComprar{
+    display: flex;
+    margin-left: 70%;
+  }
+
+  select{
+    padding: 0.2rem;
+    border-radius: 4px;
+  }
+
+  .campo-dinheiro{
+    display: flex;
+    flex-direction: row;
+  }
+
+  #valor-dinheiro{
+    width: 8rem;
+    margin-right: 0.3rem;
+  }
+
+  #troco-dinheiro{
+    width: 8rem;
+    background-color: #ccc;
+    border-color: #574f4f49;
+  }

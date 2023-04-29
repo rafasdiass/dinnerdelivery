@@ -1,19 +1,29 @@
 <div class="container">
   <div class="flip" [ngClass]="{'flipped': !isLoginView}">
-    <!-- Início do formulário de login -->
     <div class="boxCard" *ngIf="isLoginView">
       <h2>Login</h2>
       <br>
-      <form (ngSubmit)="onLoginSubmit()">
-        <input type="email" id="email" name="email" [(ngModel)]="loginEmail" required placeholder="E-mail"/>
-        <br>
-        <input type="password" id="password" name="password" [(ngModel)]="loginPassword" required placeholder="Senha"/>
-        <br>
-        <button type="submit">Entrar</button>
-        <button (click)="signInWithGoogle()" class="btn btn-primary">Entrar com o Google</button>
+      <form (ngSubmit)="onLoginSubmit()" class="form-login">
+        <div class="form-group">
+          <input type="email" id="email" name="email" [(ngModel)]="loginEmail" required placeholder="E-mail" />
+          <br />
+          <input type="password" id="password" name="password" [(ngModel)]="loginPassword" required placeholder="Senha" />
+          <br />
+        </div>
+        <div class="button-container">
+          <div>
+            <button type="submit">Entrar</button>
+          </div>
+          <div class="mt-2">
+            <button (click)="signInWithGoogle()" class="google-signin-btn btn rounded">
+              <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo" />
+              <span>Entrar com o Google</span>
+            </button>
+          </div>
+        </div>
+        
       </form>
       <a id="esqueci-senha">Esqueci minha senha</a>
-
       <div id="box-message">
         Ainda não tem cadastro?
         <a id="clique-aqui" (click)="toggleView()">Clique aqui</a>
@@ -37,10 +47,10 @@
         <input type="text" id="registerAddress" name="registerAddress" [(ngModel)]="registerAddress" placeholder="Endereço">
         <br />
         <div id="cadastrar2">
-          <button type="submit" >Cadastrar</button>
+          <button type="submit">Cadastrar</button>
         </div>
       </form>
-      <div >
+      <div>
         Já tem cadastro?
         <a id="clique-aqui" (click)="toggleView(); onFlip()">Clique aqui</a>
       </div>

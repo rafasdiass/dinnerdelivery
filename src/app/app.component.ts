@@ -1,9 +1,6 @@
-// app.component.ts
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CartService } from './cart.service';
 import { Subscription } from 'rxjs';
-import { Order } from './order';
-import { CartItem } from './item-list/cart-item.model';
 
 @Component({
   selector: 'app-root',
@@ -13,11 +10,7 @@ import { CartItem } from './item-list/cart-item.model';
 export class AppComponent implements OnInit, OnDestroy {
   title = 'dinnerdelivery';
   totalItems: number = 0;
-  cartItems: CartItem[] = [];
-  currentOrder: Order | null = null;
-  orderSummaryVisible = false;
   private cartChangedSubscription: Subscription | null;
-  
 
   constructor(private cartService: CartService) {
     this.cartChangedSubscription = null;
@@ -25,7 +18,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.totalItems = this.cartService.getTotalItems();
-    this.cartItems = this.cartService.getCartItems();
     this.cartChangedSubscription = this.cartService.cartChanged.subscribe((totalItems: number) => {
       this.totalItems = totalItems;
     });
@@ -35,19 +27,5 @@ export class AppComponent implements OnInit, OnDestroy {
     if (this.cartChangedSubscription) {
       this.cartChangedSubscription.unsubscribe();
     }
-  }
-
-  orderPlaced(order: Order): void {
-    this.currentOrder = order;
-    
-  }
-
-  showOrderSummary(order: Order): void {
-    this.orderSummaryVisible = true;
-    this.currentOrder = order;
-  }
-
-  onShowOrderSummary(): void { // Adicionado aqui
-    this.orderSummaryVisible = !this.orderSummaryVisible;
   }
 }

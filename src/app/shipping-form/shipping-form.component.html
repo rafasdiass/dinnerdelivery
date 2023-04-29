@@ -1,28 +1,39 @@
-<form [formGroup]="shippingForm">
-  <label for="name">Nome:</label>
-  <input type="text" id="name" name="name" formControlName="name" required />
-  <br />
-  <label for="whatsapp">WhatsApp:</label>
-  <input type="text" id="whatsapp" name="whatsapp" formControlName="whatsapp" required />
-  <br />
+<div class="container">
+  <div class="formulario">
 
-  <div *ngIf="shippingForm.controls['shippingOption'].value === 'delivery'">
-    <label for="street">Rua:</label>
-    <input type="text" id="street" name="street" formControlName="street" required />
-    <br />
-    <label for="neighborhood">Bairro:</label>
-    <input type="text" id="neighborhood" name="neighborhood" formControlName="neighborhood" required />
-    <br />
-    <label for="number">Número:</label>
-    <input type="text" id="number" name="number" formControlName="number" required />
-    <br />
-    <label for="zipcode">CEP:</label>
-    <input type="text" id="zipcode" name="zipcode" formControlName="zipcode" required pattern="[0-9]{5}-[0-9]{3}" />
-    <br />
-    <label for="reference">Ponto de referência:</label>
-    <input type="text" id="reference" name="reference" formControlName="reference" />
-    <br />
+    <form #shippingForm="ngForm" (ngSubmit)="onSubmit(shippingForm)">
+      <input type="text" id="name" name="name" [(ngModel)]="name" required placeholder="Nome"/>
+      <br />
+      <input type="text" id="number" name="number" [(ngModel)]="number" required placeholder="Celular"/>
+      <br />
+      <div *ngIf="shippingOption === 'delivery'">
+        <input type="text" id="street" name="street" [(ngModel)]="street" required placeholder="Logradouro"/>
+        <br />
+        <input type="text" id="neighborhood" name="neighborhood" [(ngModel)]="neighborhood" required placeholder="Bairro"/>
+        <br />
+        <input type="text" id="zipcode" name="zipcode" [(ngModel)]="zipcode" required placeholder="CEP"/>
+        <br />
+        <input type="text" id="reference" name="reference" [(ngModel)]="reference" placeholder="Ponto de referência"/>
+       
+        <br />
+        <select name="forma-pagamento" id="forma-pagamento" (change)="mostrarCampoDinheiro()">
+          <option value="">Forma de pagamento</option>
+          <option value="cartão">Cartão</option>
+          <option value="dinheiro">Dinheiro</option>
+        </select>
+        <div id="campo-dinheiro" style="display: none;">
+          <input type="text" id="valorDinheiro" name="valorDinheiro" placeholder="Valor em dinheiro">
+           <label for="troco">Troco:</label> 
+          <input type="text" id="trocoDinheiro" name="trocoDinheiro" readonly>
+        </div>
+      </div>
+    </form>
   </div>
+  <div id="btComprar"name="btComprar">
+    <div class="total">
+      <h3>Total: R$ </h3>
+      <button type="submit" id="btFinCompra" (click)="onSubmit(shippingForm)" routerLink="/shipping">Finalizar Compra</button>
+    </div>
+  </div>
+</div>  
 
-  <a routerLink="/order-summary" class="btn btn-outline-primary">Mostrar Resumo</a>
-</form>
