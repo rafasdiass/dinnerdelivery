@@ -9,7 +9,10 @@ body {
   .form-container {
     width: 50%;
     max-width: 600px; /* ajuste o valor para controlar a largura máxima do formulário */
-    margin-top: 3rem; /* adicione espaço no topo do formulário */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 3rem; /* adicione espaço ao redor do formulário */
   }
   
   .input-group {
