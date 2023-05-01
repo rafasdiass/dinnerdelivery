@@ -25,7 +25,7 @@
   font-size: 2rem;
 }
 
-.dados-contato{
+.dados-contato {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -58,4 +58,37 @@ a {
 .links {
   text-decoration: none;
   cursor: pointer;
+}
+
+/* Estilo do botão de alternar tema */
+.theme-switcher {
+  margin-top: 1rem;
+}
+
+.theme-toggle-btn {
+  background-color: var(--text-color);
+  color: var(--background-color);
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.theme-toggle-btn:hover {
+  background-color: var(--text-color-hover);
+  color: var(--background-color-hover);
+}
+
+.btn-custom {
+  background-color: #89CFF0; /* Cor azul bebê */
+  color: #FF4500; /* Cor vermelha mais vibrante */
+  border: none;
+  transition: 0.3s;
+}
+
+.btn-custom:hover {
+  background-color: #73B1D6; /* Cor azul um pouco mais escura */
+  color: #FF0000; /* Cor vermelho puro */
 }
