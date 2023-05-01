@@ -1,0 +1,23 @@
+<nav>
+    <div class="icon-container">
+      <a [routerLink]="['/']">
+        <i class="bi bi-house nav-icon"></i>
+      </a>
+      <a [routerLink]="['/carrinho']">
+        <div class="cart-item-container">
+          <i class="bi bi-cart nav-icon"></i>
+          <span *ngIf="totalItems > 0" class="cart-item-count">
+            {{ totalItems }}
+            <span class="visually-hidden">número de itens no carrinho</span>
+          </span>
+        </div>
+      </a>
+      <a [routerLink]="['/login']">
+        <i class="bi bi-person-circle nav-icon"></i>
+      </a>
+      <a [routerLink]="['/register-product']">
+        <i class="bi bi-book nav-icon"></i>
+      </a>
+    </div>
+  </nav>
+  

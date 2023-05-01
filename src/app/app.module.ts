@@ -25,6 +25,7 @@ import { OrderService } from './order.service';
 // Importações do angularx-social-login
 import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from 'angularx-social-login';
 import { RegisterProductComponent } from './register-product/register-product.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { RegisterProductComponent } from './register-product/register-product.co
     FooterComponent,
     ForgotPasswordComponent,
     RegisterProductComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
