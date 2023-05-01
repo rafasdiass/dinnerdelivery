@@ -1,3 +1,4 @@
+<div class="main-content">
 <div class="container">
   <div class="flip" [ngClass]="{'flipped': !isLoginView}">
     <div class="boxCard" *ngIf="isLoginView">
@@ -11,8 +12,8 @@
         <div class="button-container">
           <div class="mt-2">
             <button type="submit">Entrar</button>
-            <button (click)="signInWithGoogle()" class="google-signin-btn btn rounded">
-              <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo" />
+            <button (click)="signInWithGoogle()" class="google-signin-btn btn">
+              <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google logo" />
               <span>Entrar com o Google</span>
             </button>
           </div>
@@ -46,7 +47,7 @@
           <button type="submit">Cadastrar</button>
         </div>
       </form>
-      <div>
+      <div class="ja-tem-cadastro-text">
         Já tem cadastro?
         <a id="clique-aqui" (click)="toggleView(); onFlip()">Clique aqui</a>
       </div>
@@ -54,5 +55,5 @@
     <!-- Fim do formulário de cadastro -->
   </div>
 </div>
-
+</div>
 <app-footer></app-footer>
