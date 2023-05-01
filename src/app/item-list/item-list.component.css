@@ -179,3 +179,9 @@ p {
   text-decoration: none;
   cursor: pointer;
 }
+/* Logo da flor */
+.logo-flor {
+  width: 150px; /* Ajuste o tamanho da imagem */
+  height: auto;
+  margin-bottom: 1rem;
+}
