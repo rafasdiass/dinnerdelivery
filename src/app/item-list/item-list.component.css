@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-/* Container principal da pesquisa */
+/* Container principal */
 .container1 {
   display: flex;
   align-items: center;
@@ -16,36 +16,6 @@
   margin-top: 30px;
 }
 
-/* Campo de pesquisa */
-#cp-pesquisar {
-  width: 25rem;
-  height: 2.5rem;
-  padding: 0px 15px;
-  background: #a52a2a26;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border: none;
-  outline: none;
-  position: relative; 
-  margin-top: 3rem;
-}
-
-/* Botão de pesquisa */
-#btn-pesquisar {
-  display: flex;
-  height: 2.5rem;
-  font-size: 30px;
-  background: #a52a2a26;
-  align-items: center;
-  color: #ff00ff;
-  border: none;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  padding: 5px;
-  margin-top: -2.5rem;
-  margin-left: 24.9rem;
-}
-
 /* Container dos produtos */
 .container2 {
   display: flex;
@@ -53,7 +23,7 @@
   gap: 2.5%;
   align-items: center;
   justify-content: center;
-  margin-top: 1rem;
+  margin-top: 3rem; /* alterado de 1rem para 3rem */
 }
 
 /* tamanho item produto */
