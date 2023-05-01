@@ -1,0 +1,13 @@
+body {
+    background-color: #000;
+    color: #fff;
+  }
+  
+  .nav-icon {
+    color: red;
+  }
+  
+  a:hover .nav-icon {
+    color: #fff;
+  }
+  
