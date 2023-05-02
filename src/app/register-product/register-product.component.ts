@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Item } from '../item-list/item.model';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-register-product',
@@ -8,6 +9,8 @@ import { Item } from '../item-list/item.model';
   styleUrls: ['./register-product.component.css']
 })
 export class RegisterProductComponent {
+  constructor(private productService: ProductService) {}
+
   newProduct: Item = {
     id: 0,
     name: '',
@@ -20,23 +23,30 @@ export class RegisterProductComponent {
   items: Item[] = [];
 
   addProduct(form: NgForm): void {
-    // Adicione o novo produto à lista de produtos existente
-    this.items.push(this.newProduct);
+    // Chame o método createProduct do serviço ProductService
+    this.productService.createProduct(this.newProduct).subscribe(
+      (response) => {
+        console.log('Produto cadastrado com sucesso:', response);
 
-    // Exibe uma mensagem no console confirmando o cadastro do produto
-    console.log('Produto cadastrado com sucesso:', this.newProduct);
+        // Adicione o novo produto à lista de produtos existente
+        this.items.push(response);
 
-    // Limpe os campos do formulário
-    this.newProduct = {
-      id: 0,
-      name: '',
-      description: '',
-      price: 0,
-      imageUrl: '',
-      quantity: 0, 
-    };
+        // Limpe os campos do formulário
+        this.newProduct = {
+          id: 0,
+          name: '',
+          description: '',
+          price: 0,
+          imageUrl: '',
+          quantity: 0,
+        };
 
-    // Reseta o formulário para seu estado inicial
-    form.resetForm();
+        // Reseta o formulário para seu estado inicial
+        form.resetForm();
+      },
+      (error) => {
+        console.error('Erro ao cadastrar o produto:', error);
+      }
+    );
   }
 }
