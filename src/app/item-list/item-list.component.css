@@ -6,10 +6,7 @@
   box-sizing: border-box;
 }
 
-/* Menu superior */
-
-
-/* Container principal da pesquisa */
+/* Container principal */
 .container1 {
   display: flex;
   align-items: center;
@@ -19,43 +16,6 @@
   margin-top: 30px;
 }
 
-/* Estilo do botão */
-.btn {
-  background: #a52a2a26;
-  border-radius: 10px;
-  border: none;
-}
-
-/* Campo de pesquisa */
-#cp-pesquisar {
-  width: 25rem;
-  height: 2.5rem;
-  padding: 0px 15px;
-  background: #a52a2a26;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border: none;
-  outline: none;
-  position: relative; 
-  margin-top: 3rem;
-}
-
-/* Botão de pesquisa */
-#btn-pesquisar {
-  display: flex;
-  height: 2.5rem;
-  font-size: 30px;
-  background: #a52a2a26;
-  align-items: center;
-  color: #b1202073;
-  border: none;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  padding: 5px;
-  margin-top: -2.5rem;
-  margin-left: 24.9rem;
-}
-
 /* Container dos produtos */
 .container2 {
   display: flex;
@@ -63,21 +23,20 @@
   gap: 2.5%;
   align-items: center;
   justify-content: center;
-  margin-top: 1rem;
+  margin-top: 3rem; /* alterado de 1rem para 3rem */
 }
 
 /* tamanho item produto */
-.item{
+.item {
   height: 30rem;
   margin-top: 2rem;
 }
 
 /* tamanho card produto */
-.card{
+.card {
   width: 20rem;
   height: 25rem;
   display: flex;
-  
 }
 
 /* Container do nome, descrição, preço e botão Adicionar ao Carrinho */
@@ -88,13 +47,11 @@
   align-items: center;
   justify-items: center;
   flex-direction: column;
-  
   margin-top: 1rem;
 }
 
 /* Estilo das imagens dos produtos */
 .product1 {
-  background-image: url('/assets/img/doce1.jpg');
   background-size: cover;
   background-position: center;
   width: 100%;
@@ -115,7 +72,7 @@
 }
 
 /* Botao proximos produtos */
-.btnProximo{
+.btnProximo {
   width: 20rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
@@ -123,59 +80,6 @@
   border-radius: 0.4rem;
 }
 
-.btnProximo:hover{
+.btnProximo:hover {
   background-color: #532525;
-}
-
-/* Rodapé */
-.rodape {
-  display: flex;
-  position: absolute;
-  margin-bottom: 20rem;
-  width: 100%;
-  height: 15rem;
-  background-color: #a52a2a73;
-  align-items: center;
-  justify-items: center;
-  flex-direction: column;
-  color: #ffffff;
-}
-
-/* Contato no rodapé */
-#contato {
-  margin-top: 20px;
-  margin-bottom: 10px;
-  font-size: 22px;
-}
-
-/* Rede social no rodapé */
-.rede-social {
-  margin-top: 22px;
-  margin-bottom: 22px;
-}
-
-/* Copyright no rodapé */
-#Copyright {
-  font-size: 12px;
-}
-
-/* Efeito de hover nos links */
-a:hover {
-  filter: brightness(0.55);
-}
-
-/* Espaçamento entre ícones de links */
-a {
-  padding: 5px 7px;
-}
-
-/* Estilo do parágrafo */
-p {
-  margin-top: 3px;
-}
-
-/* Estilo dos links das redes sociais */
-.links {
-  text-decoration: none;
-  cursor: pointer;
 }

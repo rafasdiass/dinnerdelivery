@@ -1,16 +1,32 @@
-<form (submit)="addProduct()">
-    <label for="name">Nome:</label>
-    <input type="text" id="name" [(ngModel)]="newProduct.name" required>
-  
-    <label for="description">Descrição:</label>
-    <textarea id="description" [(ngModel)]="newProduct.description"></textarea>
-  
-    <label for="price">Preço:</label>
-    <input type="number" id="price" [(ngModel)]="newProduct.price" required>
-  
-    <label for="image">Imagem:</label>
-    <input type="text" id="image" [(ngModel)]="newProduct.imageUrl">
-  
-    <button type="submit">Cadastrar</button>
-  </form>
-  
+<div class="container">
+  <div class="form-container">
+    <form #productForm="ngForm" (ngSubmit)="addProduct(productForm)">
+      <div class="input-group">
+        <span class="input-group-text"><i class="bi bi-card-text icon-name"></i></span>
+        <input type="text" id="name" name="name" [(ngModel)]="newProduct.name" class="form-control" placeholder="Nome" required>
+      </div>
+
+      <div class="input-group">
+        <span class="input-group-text"><i class="bi bi-pencil-square icon-description"></i></span>
+        <textarea id="description" name="description" [(ngModel)]="newProduct.description" class="form-control" placeholder="Descrição"></textarea>
+      </div>
+
+      <div class="input-group">
+        <span class="input-group-text"><i class="bi bi-cash icon-price"></i></span>
+        <input type="number" id="price" name="price" [(ngModel)]="newProduct.price" class="form-control" placeholder="Preço" required>
+      </div>
+
+      <div class="input-group">
+        <span class="input-group-text"><i class="bi bi-image icon-image"></i></span>
+        <input type="text" id="image" name="image" [(ngModel)]="newProduct.imageUrl" class="form-control" placeholder="URL da Imagem">
+      </div>
+
+      <div class="input-group">
+        <span class="input-group-text"><i class="bi bi-image icon-image"></i></span>
+        <input type="number" id="quantity" name="quantity" [(ngModel)]="newProduct.quantity" class="form-control" placeholder="Quantidade">
+      </div>
+
+      <button type="submit" [disabled]="!productForm.valid">Cadastrar</button>
+    </form>
+  </div>
+</div>

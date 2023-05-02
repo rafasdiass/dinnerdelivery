@@ -1,24 +1,2 @@
+<app-navbar></app-navbar>
 <router-outlet></router-outlet>
-<nav>
-  <div class="cart-login">
-    <a [routerLink]="['/']">
-      <i class="bi bi-house"></i>
-    </a>
-    <a [routerLink]="['/carrinho']">
-      <div class="cart-item-container"> <!-- Adicione esta div -->
-        <i class="bi bi-cart"></i>
-        <span *ngIf="totalItems > 0" class="cart-item-count">
-          {{ totalItems }}
-          <span class="visually-hidden">número de itens no carrinho</span>
-        </span>
-      </div> 
-    </a>
-    <a [routerLink]="['/login']">
-      <i class="bi bi-person-circle"></i>
-    </a>
-    <a [routerLink]="[register-product]">
-      <i class="bi bi-book"></i>
-    </a>
-  </div>  
-</nav>
-  

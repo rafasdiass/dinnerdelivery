@@ -1,3 +1,26 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  width: 100%;
+}
+
+body {
+  color: #000000; /* Texto preto */
+}
+
 /* Estilos gerais */
 * {
   font-family: sans-serif;
@@ -5,14 +28,24 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+h2, a {
+  color: #000000; /* Texto preto */
+}
+#clique-aqui {
+  color: #000000; /* Texto preto */
+}
+#box-message {
+  color: #000000; /* Texto preto */
+}
+.ja-tem-cadastro-text {
+  color: #000000; /* Texto preto */
+}
 /* container */
 .container {
   position: relative;
   width: 25rem;
   height: 30rem;
   margin-top: 3rem;
-  margin-left: 35%;
 }
 
 /* flip */
@@ -74,6 +107,7 @@
 
 #clique-aqui2{
   font-size: 1rem;
+  
 }
 
 /* estilo botões */
@@ -174,12 +208,14 @@ label {
   border-radius: 3px;
   cursor: pointer;
   margin-left: 5px;
+  text-decoration: none;
 }
 
 .google-signin-btn img {
   width: 18px;
   height: 18px;
   margin-right: 8px;
+  background-color: transparent; /* Fundo transparente */
 }
 
 .google-signin-btn:hover {

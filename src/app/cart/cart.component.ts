@@ -29,8 +29,6 @@ export class CartComponent implements OnInit {
   increaseItemQuantity(cartItem: CartItem): void {
     this.cartService.increaseItemQuantity(cartItem.item);
   }
-
-
   
   calculateTotalPrice(): number {
     let total = 0;

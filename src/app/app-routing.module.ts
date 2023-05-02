@@ -9,7 +9,7 @@ import { ShippingFormComponent } from './shipping-form/shipping-form.component';
 import { PaymentFormComponent } from './payment-form/payment-form.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component'; // Verifique se o caminho está correto
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component'; 
 import { RegisterProductComponent  } from "./register-product/register-product.component";
 
 // Definição das rotas da aplicação

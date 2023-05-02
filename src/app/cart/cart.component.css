@@ -9,6 +9,7 @@
 #titulo{
   margin-top: 2rem;
   margin-left: 2rem;
+  color: #ffffff; /* Texto branco total */
 }
 
 /* Define o estilo do espaço reservado para a tabela de itens */
@@ -21,6 +22,7 @@
 /* Define o estilo para o total e os botões de compra e posiciona-os à direita */
 .text-right{
   padding: 2rem 0.2rem;
+  color: #ffffff; /* Texto branco total */
 }
 
 /* Define o estilo do carrinho de compras */
@@ -133,4 +135,10 @@
 
 .cart-item-count{
   border-radius: 99px;
+}
+.table {
+  margin-top: 1rem;
+  margin-bottom: 15rem;
+  margin-right: 1rem;
+  color: #ffffff; /* Texto branco total */
 }
