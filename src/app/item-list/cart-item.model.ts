@@ -11,6 +11,6 @@ export class CartItem {
   }
 
   getTotalPrice(): number {
-    return this.item.price * this.quantity;
+    return this.item.unit_price * this.quantity;
   }
 }

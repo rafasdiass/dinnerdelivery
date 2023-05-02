@@ -15,7 +15,7 @@ export class RegisterProductComponent {
     id: 0,
     name: '',
     description: '',
-    price: 0,
+    unit_price: 0,
     imageUrl: '',
     quantity: 0,
   };
@@ -36,7 +36,7 @@ export class RegisterProductComponent {
           id: 0,
           name: '',
           description: '',
-          price: 0,
+          unit_price: 0,
           imageUrl: '',
           quantity: 0,
         };
