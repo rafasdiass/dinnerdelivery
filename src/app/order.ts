@@ -22,7 +22,7 @@ export class Order {
   getTotalPrice(): number {
     let totalPrice = 0;
     for (let cartItem of this.cartItems) {
-      totalPrice += cartItem.item.price * cartItem.quantity;
+      totalPrice += cartItem.item.unit_price * cartItem.quantity;
     }
     return totalPrice;
   }
@@ -38,6 +38,6 @@ export class CartItem {
   }
 
   getTotalPrice(): number {
-    return this.item.price * this.quantity;
+    return this.item.unit_price * this.quantity;
   }
 }
