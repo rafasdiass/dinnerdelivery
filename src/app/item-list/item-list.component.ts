@@ -11,7 +11,12 @@ import { ProductService } from '../services/product.service';
 })
 export class ItemListComponent implements OnInit {
   items: Item[] = [
-    // ... lista de itens ...
+    new Item(1, 'Bolo de Chocolate', '', 15.99, 'assets/img/doce1.jpeg', 0),
+    new Item(2, 'Torta de Limão', '', 12.99, 'assets/img/doce2.jpeg', 0),
+    new Item(3, 'Cheesecake de Morango', '', 18.99, 'assets/img/doce3.jpeg', 0),
+    new Item(4, 'Pavê de Amendoim', '', 14.99, 'assets/img/doce4.jpeg', 0),
+    new Item(5, 'Tiramisu', '', 19.99, 'assets/img/doce5.jpeg', 0),
+    new Item(6, 'Tiramisu', '', 19.99, 'assets/img/doce6.jpeg', 0)
   ];
 
   constructor(
