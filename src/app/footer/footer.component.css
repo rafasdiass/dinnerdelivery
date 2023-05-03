@@ -92,3 +92,22 @@ a {
   background-color: #73B1D6; /* Cor azul um pouco mais escura */
   color: #FF0000; /* Cor vermelho puro */
 }
+.theme-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  width: 60px;
+  background-color: #f0f0f0;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.theme-icon {
+  font-size: 1.5rem;
+  opacity: 0.4;
+}
+
+.active-icon {
+  opacity: 1;
+}

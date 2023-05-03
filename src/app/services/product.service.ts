@@ -35,4 +35,11 @@ export class ProductService {
   deleteProduct(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
+
+  // Adiciona um produto ao carrinho
+  addProductToCart(productId: number, quantity: number, cartId: number): Observable<any> {
+    // Substitua a URL abaixo pela URL da API do seu servidor
+    const apiUrl = `http://3.83.176.3/add-product/${productId}/${quantity}/${cartId}`;
+    return this.http.post<any>(apiUrl, {});
+  }
 }

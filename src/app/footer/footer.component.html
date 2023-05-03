@@ -17,6 +17,8 @@
     </a>
   </div>
   <p id="Copyright">&copy; 2023 - by FLRK | dinnerDelivery</p>
-  <button class="btn-custom" (click)="onToggleTheme()">Alternar tema</button>
-   
+  <div class="theme-toggle" (click)="onToggleTheme()">
+    <i class="bi bi-sun-fill theme-icon" aria-label="light-theme-icon" [ngClass]="{'active-icon': !isDarkTheme()}"></i>
+    <i class="bi bi-moon-fill theme-icon" aria-label="dark-theme-icon" [ngClass]="{'active-icon': isDarkTheme()}"></i>
+  </div>
 </footer>

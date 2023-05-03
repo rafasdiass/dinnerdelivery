@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 import { Router } from '@angular/router';
 import { Item } from './item.model';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-item-list',
@@ -18,9 +19,23 @@ export class ItemListComponent implements OnInit {
     new Item(6, 'Tiramisu', '', 19.99, 'assets/img/doce6.jpeg', 0)
   ];
 
-  constructor(private cartService: CartService, private router: Router) {}
+  constructor(
+    private cartService: CartService,
+    private router: Router,
+    private productService: ProductService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.loadItems();
+  }
+
+  loadItems(): void {
+    this.productService.getProducts().subscribe((products) => {
+      if (products.length > 0) {
+        this.items = products;
+      }
+    });
+  }
 
   addItem(item: Item, quantity: number) {
     this.cartService.addItem(item, quantity);
