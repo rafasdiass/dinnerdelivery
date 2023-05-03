@@ -17,8 +17,12 @@
     </a>
   </div>
   <p id="Copyright">&copy; 2023 - by FLRK | dinnerDelivery</p>
-  <div class="theme-toggle" (click)="onToggleTheme()">
-    <i class="bi bi-sun-fill theme-icon" aria-label="light-theme-icon" [ngClass]="{'active-icon': !isDarkTheme()}"></i>
-    <i class="bi bi-moon-fill theme-icon" aria-label="dark-theme-icon" [ngClass]="{'active-icon': isDarkTheme()}"></i>
+  <div class="theme-icons-container">
+    <i class="bi bi-sun-fill sun-icon" aria-label="light-theme-icon"></i>
+    <div class="theme-toggle">
+      <input type="checkbox" id="themeSwitch" (change)="onToggleTheme()" [checked]="isDarkTheme()">
+      <label for="themeSwitch" class="slider"></label>
+    </div>
+    <i class="bi bi-moon-fill moon-icon" aria-label="dark-theme-icon"></i>
   </div>
 </footer>
