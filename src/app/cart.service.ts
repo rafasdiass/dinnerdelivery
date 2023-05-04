@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Item } from './item-list/item.model';
 import { CartItem } from './item-list/cart-item.model';
-import { Subject } from 'rxjs'; // Adicione esta linha
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,8 @@ import { Subject } from 'rxjs'; // Adicione esta linha
 export class CartService {
   cartItems: CartItem[] = [];
   private deliveryOption: string = 'pickup';
-  cartChanged = new Subject<number>(); // Adicione esta linha
+  cartChanged = new Subject<number>();
+  private shoppingCartId: number = 1; // Adicione esta linha
 
   constructor() {}
 
@@ -26,7 +27,7 @@ export class CartService {
       let newCartItem = new CartItem(item, quantity);
       this.cartItems.push(newCartItem);
     }
-    this.cartChanged.next(this.getTotalItems()); // Adicione esta linha
+    this.cartChanged.next(this.getTotalItems());
   }
 
   getCartItems(): CartItem[] {
@@ -35,7 +36,7 @@ export class CartService {
 
   clearCart(): void {
     this.cartItems = [];
-    this.cartChanged.next(0); // Adicione esta linha
+    this.cartChanged.next(0);
   }
 
   increaseItemQuantity(item: Item): void {
@@ -45,7 +46,7 @@ export class CartService {
         break;
       }
     }
-    this.cartChanged.next(this.getTotalItems()); // Adicione esta linha
+    this.cartChanged.next(this.getTotalItems());
   }
 
   decreaseItemQuantity(item: Item): void {
@@ -58,7 +59,7 @@ export class CartService {
         break;
       }
     }
-    this.cartChanged.next(this.getTotalItems()); // Adicione esta linha
+    this.cartChanged.next(this.getTotalItems());
   }
 
   setDeliveryOption(option: string): void {
@@ -73,12 +74,16 @@ export class CartService {
     return this.deliveryOption === 'delivery' ? 10 : 0;
   }
 
-  // Adicione este método
   getTotalItems(): number {
     let totalItems = 0;
     for (let cartItem of this.cartItems) {
       totalItems += cartItem.quantity;
     }
     return totalItems;
+  }
+
+  // Adicione este método
+  getShoppingCartId(): number {
+    return this.shoppingCartId;
   }
 }

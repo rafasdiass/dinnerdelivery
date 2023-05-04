@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'http://3.83.176.3'; // Atualize para o domínio da sua API
+  private apiUrl = 'http://18.234.79.16'; // Atualize para o domínio da sua API
 
   constructor(private http: HttpClient) {}
 

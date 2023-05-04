@@ -1,5 +1,5 @@
 <div class="container1">
-</div> 
+</div>
 
 <div class="container2">
   <div *ngFor="let item of items" class="item">
@@ -8,8 +8,8 @@
       <div class="desc-box">
           <p class="tituloItem">{{item.name}}</p>
           <p class="descricaoItem">{{item.description}}</p>
-          <p class="precoItem">Preço: {{item.price}}</p>
-        <button id="addItem" (click)="addItem(item, item.quantity)">Adicionar ao carrinho</button>
+          <p class="precoItem">Preço: {{item.unit_price}}</p>
+        <button id="addItem" (click)="addProductToCart(item.quantity)">Adicionar ao carrinho</button>
         <div class="item-quantity">
           <button id="btDiminui" (click)="decreaseQuantity(item)" [disabled]="item.quantity === 0">-</button>
           <span>{{item.quantity}}</span>

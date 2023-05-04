@@ -19,7 +19,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AuthInterceptor } from './auth.interceptor';
-
+import { ProductService } from './services/product.service';
 import { OrderService } from './order.service';
 
 // Importações do angularx-social-login
@@ -53,6 +53,7 @@ import { NavbarComponent } from './navbar/navbar.component';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    ProductService,
     OrderService,
     {
       provide: 'SocialAuthServiceConfig',
