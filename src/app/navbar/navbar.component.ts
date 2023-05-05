@@ -16,6 +16,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    //FAZER REQ API PARA PEGAR O CARRINHO SE HOUVER
     this.totalItems = this.cartService.getTotalItems();
     this.cartChangedSubscription = this.cartService.cartChanged.subscribe((totalItems: number) => {
       this.totalItems = totalItems;
