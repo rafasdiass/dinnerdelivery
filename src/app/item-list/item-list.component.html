@@ -9,7 +9,7 @@
           <p class="tituloItem">{{item.name}}</p>
           <p class="descricaoItem">{{item.description}}</p>
           <p class="precoItem">Preço: {{item.unit_price}}</p>
-        <button id="addItem" (click)="addProductToCart(item.quantity)">Adicionar ao carrinho</button>
+        <button id="addItem" (click)="addProductToCart(item.id, item.quantity)">Adicionar ao carrinho</button>
         <div class="item-quantity">
           <button id="btDiminui" (click)="decreaseQuantity(item)" [disabled]="item.quantity === 0">-</button>
           <span>{{item.quantity}}</span>

@@ -4,7 +4,7 @@ import { CartItem } from './item-list/cart-item.model';
 import { Subject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CartService {
   cartItems: CartItem[] = [];
@@ -40,9 +40,11 @@ export class CartService {
   }
 
   increaseItemQuantity(item: Item): void {
+    console.log(item);
     for (let cartItem of this.cartItems) {
       if (cartItem.item.id === item.id) {
         cartItem.quantity++;
+        console.log(cartItem.quantity);
         break;
       }
     }
@@ -75,10 +77,12 @@ export class CartService {
   }
 
   getTotalItems(): number {
+
     let totalItems = 0;
     for (let cartItem of this.cartItems) {
       totalItems += cartItem.quantity;
     }
+
     return totalItems;
   }
 
