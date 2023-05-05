@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+.activated{
+  filter: brightness(50%);
+}
+
 /* Logo da flor */
 .logo-flor {
   width: 150px; /* Ajuste o tamanho da imagem */

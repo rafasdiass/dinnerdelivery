@@ -44,16 +44,14 @@ export class ProductService {
 
   // Adiciona um produto ao carrinho
   addProductToCart( quantity: number){
-    // Substitua a URL abaixo pela URL da API do seu servidor
     this.http.post<Item>(`${this.apiUrl}/shoppingCart/add-product/e6fded3d-41e7-40db-b865-5c84fc14da8d/${quantity}/`, {}).subscribe(
       ((response) => {
         localStorage.setItem('idCart', response.id);
       })
     );
   }
+  
   addProductToCartWithID( quantity: number, idCart: string){
-    // Substitua a URL abaixo pela URL da API do seu servidor
-    
     this.http.post<Item>(`${this.apiUrl}/shoppingCart/add-product/397c08c9-08db-4f23-8b5a-7c23d58c519b/${quantity}/${idCart}`, {}).subscribe(
       ((response) => {
         console.log(response)
