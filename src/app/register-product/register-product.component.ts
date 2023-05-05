@@ -6,7 +6,7 @@ import { ProductService } from '../services/product.service';
 @Component({
   selector: 'app-register-product',
   templateUrl: './register-product.component.html',
-  styleUrls: ['./register-product.component.css']
+  styleUrls: ['./register-product.component.css'],
 })
 export class RegisterProductComponent {
   constructor(private productService: ProductService) {}
@@ -18,8 +18,9 @@ export class RegisterProductComponent {
     unit_price: 0,
     imageUrl: '',
     quantity: 0,
+    quantityCart: 0,
   };
-  
+
   items: Item[] = [];
 
   addProduct(form: NgForm): void {
@@ -39,6 +40,7 @@ export class RegisterProductComponent {
           unit_price: 0,
           imageUrl: '',
           quantity: 0,
+          quantityCart: 0,
         };
 
         // Reseta o formulário para seu estado inicial

@@ -8,17 +8,20 @@ import { pipe } from 'rxjs';
 @Component({
   selector: 'app-item-list',
   templateUrl: './item-list.component.html',
-  styleUrls: ['./item-list.component.css']
+  styleUrls: ['./item-list.component.css'],
 })
 export class ItemListComponent implements OnInit {
-  items: Item[] = [
-    new Item('1', 'Bolo de Chocolate', '', 15.99, 'assets/img/doce1.jpeg', 0),
-    new Item('2', 'Torta de Limão', '', 12.99, 'assets/img/doce2.jpeg', 0),
-    new Item('3', 'Cheesecake de Morango', '', 18.99, 'assets/img/doce3.jpeg', 0),
-    new Item('4', 'Pavê de Amendoim', '', 14.99, 'assets/img/doce4.jpeg', 0),
-    new Item('5', 'Tiramisu', '', 19.99, 'assets/img/doce4.jpeg', 0),
-    new Item('6', 'Tiramisu', '', 19.99, 'assets/img/doce4.jpeg', 0)
-  ];
+  // items: Item[] = [
+  //   new Item('1', 'Bolo de Chocolate', '', 15.99, 'assets/img/doce1.jpeg', 0),
+  //   new Item('2', 'Torta de Limão', '', 12.99, 'assets/img/doce2.jpeg', 0),
+  //   new Item('3', 'Cheesecake de Morango', '', 18.99, 'assets/img/doce3.jpeg', 0),
+  //   new Item('4', 'Pavê de Amendoim', '', 14.99, 'assets/img/doce4.jpeg', 0),
+  //   new Item('5', 'Tiramisu', '', 19.99, 'assets/img/doce4.jpeg', 0),
+  //   new Item('6', 'Tiramisu', '', 19.99, 'assets/img/doce4.jpeg', 0),
+  // ];
+
+  items: Item[] = []
+  quantity: number = 0
 
   constructor(
     private cartService: CartService,
@@ -26,8 +29,13 @@ export class ItemListComponent implements OnInit {
     private productService: ProductService
   ) {}
 
+  setQuantityCart(): void {
+    this.items.map(item => item.quantityCart = 0)
+  }
+
   ngOnInit(): void {
     this.loadItems();
+    this.setQuantityCart();
   }
 
   loadItems(): void {
@@ -44,7 +52,7 @@ export class ItemListComponent implements OnInit {
 
   //   // Obtenha o ID do carrinho de compras do serviço CartService
   //   const shoppingCartId = this.cartService.getShoppingCartId();
-      
+
   //   }
   //   // Adicione o produto ao carrinho usando o serviço ProductService (API)
   //   this.productService.addProductToCart(item.id, quantity, shoppingCartId).subscribe(() => {
@@ -70,18 +78,17 @@ export class ItemListComponent implements OnInit {
     this.router.navigate(['/cart']);
   }
 
-  addProductToCart(quantity:number){
-    const idCart: string | null = localStorage.getItem('idCart')
-    console.log(idCart)
-    if (idCart) {
-      
-      this.productService.addProductToCartWithID(quantity, idCart)
-    }
-    this.productService.addProductToCart(quantity)
-    
-    
-    
-    //this.productService.addProductToCart(productId,quantity)
+  addProductToCart(productId: string, quantity: number) {
+    // const idCart: string | null = localStorage.getItem('idCart');
+    // console.log(idCart);
+    // if (idCart) {
+    //   this.productService.addProductToCartWithID(quantity, idCart);
+    // }
+    const item = this.items.find((item) => item.id === productId);
 
+    this.productService.addProductToCart(productId, quantity);
+    this.cartService.addItem(item as Item, quantity)
+
+    //this.productService.addProductToCart(productId,quantity)
   }
 }
