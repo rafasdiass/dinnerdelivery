@@ -42,4 +42,11 @@ export class ListRegisteredProductsComponent implements OnInit {
       item.editingUnitPrice = false;
     });
   }
+
+  deleteProduct(item: Item): void {
+    this.productService.deleteProduct(item.id).subscribe(() => {
+      console.log('Produto deletado');
+      this.items = this.items.filter(i => i.id !== item.id);
+    });
+  }
 }
