@@ -58,3 +58,10 @@
   padding: 4px 8px;
   cursor: pointer;
 }
+
+
+input:disabled{
+  background-color: white;
+  border: none;
+  padding: 0;
+}
