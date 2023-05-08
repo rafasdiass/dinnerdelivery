@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CartService } from '../cart.service';
-import { OrderService } from '../order.service';
+import { CartService } from '../services/cart.service';
+import { OrderService } from '../services/order.service';
 
 @Component({
   selector: 'app-shipping-form',
@@ -39,7 +39,7 @@ export class ShippingFormComponent implements OnInit {
         valorDinheiro: this.valorDinheiro,
         trocoDinheiro: this.trocoDinheiro,
       };
-     
+
           // Chama o método createOrder do OrderService para enviar os dados do pedido ao back-end
           this.orderService.createOrder(customerData).subscribe(
             (response) => {
@@ -59,7 +59,7 @@ export class ShippingFormComponent implements OnInit {
   mostrarCampoDinheiro() {
     const select: HTMLSelectElement = document.getElementById("forma-pagamento") as HTMLSelectElement;
     const campoDinheiro = document.getElementById("campo-dinheiro") as HTMLElement; // Usando type assertion para informar que o elemento sempre existira no DOM
-  
+
     if (select.value == "dinheiro") {
       campoDinheiro.style.display = "block";
     } else {

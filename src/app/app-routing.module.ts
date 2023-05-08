@@ -9,12 +9,14 @@ import { ShippingFormComponent } from './shipping-form/shipping-form.component';
 import { PaymentFormComponent } from './payment-form/payment-form.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component'; 
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { RegisterProductComponent  } from "./register-product/register-product.component";
+import { ListRegisteredProductsComponent } from './list-registered-products/list-registered-products.component';
 
 // Definição das rotas da aplicação
 const routes: Routes = [
   { path: 'home', component: HomeComponent }, // Rota para o componente HomeComponent
+  {path: 'list-registered-products', component: ListRegisteredProductsComponent },
   { path: '', component: ItemListComponent }, // Rota padrão para o componente ItemListComponent
   { path: 'carrinho', component: CartComponent }, // Rota para o componente CartComponent
   { path: 'shipping', component: ShippingFormComponent }, // Rota para o componente ShippingFormComponent

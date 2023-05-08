@@ -2,13 +2,22 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Item } from '../item-list/item.model';
+import { CartService } from './cart.service'; // Certifique-se de que o caminho do import esteja correto
 import { tap } from 'rxjs/operators';
+import { api } from '../api';
+
+export type Cart = {
+  id: string;
+  id_users: string | null;
+  products: Array<Item>;
+  subtotal: number;
+}
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
-  private apiUrl = 'http://18.234.79.16'; // Substitua pelo endereço do seu servidor
+  private apiUrl = api.url;
 
   constructor(private http: HttpClient) {}
 
@@ -17,14 +26,15 @@ export class ProductService {
     return this.http.post<Item>(`${this.apiUrl}/products`, product).pipe(
       tap((response) => {
         localStorage.setItem('id', response.id);
-        console.log('id do Produto: ', localStorage.getItem('id'))
+        console.log('id do Produto: ', localStorage.getItem('id'));
       })
     );
   }
 
   // Recupera todos os produtos
   getProducts(): Observable<Item[]> {
-    return this.http.get<Item[]>(this.apiUrl);
+    const response = this.http.get<Item[]>(`${this.apiUrl}/products`);
+    return response;
   }
 
   // Recupera um produto pelo ID
@@ -42,22 +52,8 @@ export class ProductService {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
-  // Adiciona um produto ao carrinho
-  addProductToCart( quantity: number){
-    this.http.post<Item>(`${this.apiUrl}/shoppingCart/add-product/e6fded3d-41e7-40db-b865-5c84fc14da8d/${quantity}/`, {}).subscribe(
-      ((response) => {
-        localStorage.setItem('idCart', response.id);
-      })
-    );
-  }
-  
-  addProductToCartWithID( quantity: number, idCart: string){
-    this.http.post<Item>(`${this.apiUrl}/shoppingCart/add-product/397c08c9-08db-4f23-8b5a-7c23d58c519b/${quantity}/${idCart}`, {}).subscribe(
-      ((response) => {
-        console.log(response)
-      })
-    );
-  }
-
 }
 
+
+// 70df3aad-6787-4844-9777-cce40bc1fdcc
+// e6fded3d-41e7-40db-b865-5c84fc14da8d

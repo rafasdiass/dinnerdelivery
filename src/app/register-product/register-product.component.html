@@ -1,31 +1,40 @@
 <div class="container">
-  <div class="form-container">
-    <form #productForm="ngForm" (ngSubmit)="addProduct(productForm)">
-      <div class="input-group">
-        <span class="input-group-text"><i class="bi bi-card-text icon-name"></i></span>
-        <input type="text" id="name" name="name" [(ngModel)]="newProduct.name" class="form-control" placeholder="Nome" required>
-      </div>
+    <div class="form-container">
+      <form id="form-dimension" #productForm="ngForm" (ngSubmit)="createProduct()">
 
-      <div class="input-group">
-        <span class="input-group-text"><i class="bi bi-pencil-square icon-description"></i></span>
-        <textarea id="description" name="description" [(ngModel)]="newProduct.description" class="form-control" placeholder="Descrição"></textarea>
-      </div>
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-person icon-name"></i></span>
+          <input type="text" name="name" [(ngModel)]="newProduct.name" class="form-control" placeholder="*Nome">
+        </div>
+        <br />
+        <div class="input-group">
+          <span id="input-group-description" class="input-group-text" size="18px"><i class="bi bi-pencil-square icon-description"></i></span>
+          <textarea style="resize:none" id="description"  name="description" [(ngModel)]="newProduct.description" class="form-control" placeholder="*Descrição"></textarea>
+        </div>
+        <br />
+        <br />
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-cash icon-price"></i></span>
+          <input type="number" id="unit_price" name="unit_price" [(ngModel)]="newProduct.unit_price" class="form-control" placeholder="Preço" required>
+        </div>
+        <br />
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-image icon-image"></i></span>
+          <input type="file" id="image" name="image" [(ngModel)]="newProduct.imageUrl" class="form-control" placeholder="URL da Imagem">
+        </div>
+        <br />
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-calculator icon-calculator"></i></span>
+          <input type="number" id="quantity" name="quantity" [(ngModel)]="newProduct.quantity" class="form-control" placeholder="*Quantidade">
+        </div>
+        <br />
+        <!-- Botão Cadastrar / listar produtos cadastrados -->
+        <div class="container-button">
+          <button  type="submit" [disabled]="!productForm.valid">Cadastrar</button>
+          <button routerLink="/list-registered-products">Listar Produtos Cadastrados</button>
+        </div>
 
-      <div class="input-group">
-        <span class="input-group-text"><i class="bi bi-cash icon-price"></i></span>
-        <input type="number" id="unit_price" name="unit_price" [(ngModel)]="newProduct.unit_price" class="form-control" placeholder="Preço" required>
-      </div>
-
-      <div class="input-group">
-        <span class="input-group-text"><i class="bi bi-image icon-image"></i></span>
-        <input type="text" id="image" name="image" [(ngModel)]="newProduct.imageUrl" class="form-control" placeholder="URL da Imagem">
-      </div>
-      <div class="input-group">
-        <span class="input-group-text"><i class="bi bi-image icon-image"></i></span>
-        <input type="number" id="quantity" name="quantity" [(ngModel)]="newProduct.quantity" class="form-control" placeholder="Quantidade">
-      </div>
-
-      <button type="submit" [disabled]="!productForm.valid">Cadastrar</button>
-    </form>
+      </form>
+    </div>
   </div>
-</div>
+
