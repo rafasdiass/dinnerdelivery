@@ -20,8 +20,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AuthInterceptor } from './auth.interceptor';
 import { ProductService } from './services/product.service';
-import { OrderService } from './order.service';
-import { CartService } from './cart.service';
+import { OrderService } from './services/order.service';
+import { CartService } from './services/cart.service';
 
 // Importações do angularx-social-login
 import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from 'angularx-social-login';

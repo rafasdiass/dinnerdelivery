@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from '../cart.service';
+import { CartService } from '../services/cart.service';
 import { Router } from '@angular/router';
 import { Item } from './item.model';
 import { ProductService } from '../services/product.service';
@@ -30,18 +30,20 @@ export class ItemListComponent implements OnInit {
   ) {}
 
   setQuantityCart(): void {
-    this.items.map(item => item.quantityCart = 0)
+    this.items.map(item => {
+      item.quantityCart = 0
+    })
   }
 
   ngOnInit(): void {
     this.loadItems();
-    this.setQuantityCart();
   }
 
   loadItems(): void {
     this.productService.getProducts().subscribe((products) => {
       if (products.length > 0) {
         this.items = products;
+        this.setQuantityCart();
       }
     });
   }
@@ -63,14 +65,14 @@ export class ItemListComponent implements OnInit {
   // }
 
   decreaseQuantity(item: Item): void {
-    if (item.quantity > 0) {
-      item.quantity--;
+    if (item.quantityCart > 0) {
+      item.quantityCart--;
     }
   }
 
   increaseQuantity(item: Item): void {
-    if (item.quantity < 10) {
-      item.quantity++;
+    if (item.quantityCart < 10) {
+      item.quantityCart++;
     }
   }
 
@@ -86,9 +88,6 @@ export class ItemListComponent implements OnInit {
     // }
     const item = this.items.find((item) => item.id === productId);
 
-    this.productService.addProductToCart(productId, quantity);
-    this.cartService.addItem(item as Item, quantity)
-
-    //this.productService.addProductToCart(productId,quantity)
+    this.cartService.addProductToCart(productId, quantity);
   }
 }

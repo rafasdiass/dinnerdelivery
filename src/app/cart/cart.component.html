@@ -10,15 +10,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of cartItems">
-        <td>{{ item.item.name }}</td>
-        <td>R$ {{ item.item.unit_price | number:'1.2-2' }}</td>
+      <tr *ngFor="let item of cart?.products">
+        <td>{{ item.name }}</td>
+        <td>R$ {{ item.unit_price | number:'1.2-2' }}</td>
         <td>
-          <button (click)="decreaseItemQuantity(item)" class="btn btn-outline-primary">-</button>
+          <button (click)="decreaseItemQuantity(item.id)" class="btn btn-outline-primary">-</button>
           {{ item.quantity }}
-          <button (click)="increaseItemQuantity(item)" class="btn btn-outline-primary">+</button>
+          <button (click)="increaseItemQuantity(item.id)" class="btn btn-outline-primary">+</button>
         </td>
-        <td>R$ {{ (item.item.unit_price * item.quantity) | number:'1.2-2' }}</td>
+        <td>R$ {{ (item.unit_price * item.quantity) | number:'1.2-2' }}</td>
       </tr>
     </tbody>
   </table>
@@ -33,7 +33,7 @@
     </label>
   </div>
   <div class="text-right">
-    <h3>Total: R$ {{ calculateTotalPrice() | number:'1.2-2' }}</h3>
+    <h3>Total: R$ {{ cart?.subtotal | number:'1.2-2' }}</h3>
     <button (click)="addMoreItems()" class="btn btn-secondary mr-2">Adicionar mais itens</button>
     <button (click)="checkout()" class="btn btn-primary">Continuar Compra</button>
   </div>

@@ -2,8 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Item } from '../item-list/item.model';
-import { CartService } from '../cart.service'; // Certifique-se de que o caminho do import esteja correto
+import { CartService } from './cart.service'; // Certifique-se de que o caminho do import esteja correto
 import { tap } from 'rxjs/operators';
+import { api } from '../api';
 
 export type Cart = {
   id: string;
@@ -16,7 +17,7 @@ export type Cart = {
   providedIn: 'root',
 })
 export class ProductService {
-  private apiUrl = 'http://52.55.161.218'; // Substitua pelo endereço do seu servidor
+  private apiUrl = api.url;
 
   constructor(private http: HttpClient) {}
 
@@ -25,16 +26,14 @@ export class ProductService {
     return this.http.post<Item>(`${this.apiUrl}/products`, product).pipe(
       tap((response) => {
         localStorage.setItem('id', response.id);
-        console.log('id do Produto: ', localStorage.getItem('id'))
+        console.log('id do Produto: ', localStorage.getItem('id'));
       })
     );
   }
 
   // Recupera todos os produtos
   getProducts(): Observable<Item[]> {
-    console.log('aaa')
     const response = this.http.get<Item[]>(`${this.apiUrl}/products`);
-    console.log(response);
     return response;
   }
 
@@ -53,26 +52,6 @@ export class ProductService {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
-  // Adiciona um produto ao carrinho
-  addProductToCart(productId: string, quantity: number){
-    this.http.post<Cart>(
-        `${this.apiUrl}/shoppingCart/add-product/${productId}/${quantity}/`,
-        {}
-      )
-      .subscribe((response) => {
-        console.log(response);
-        // localStorage.setItem('idCart', response);
-      });
-
-
-  }
-
-  addProductToCartWithID( quantity: number, idCart: string){
-    this.http.post<void>(`${this.apiUrl}/shoppingCart/add-product/397c08c9-08db-4f23-8b5a-7c23d58c519b/${quantity}/${idCart}`, {}).subscribe(
-      (response) => {
-        console.log(response)
-      });
-  }
 }
 
 
