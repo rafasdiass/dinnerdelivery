@@ -33,10 +33,7 @@
       <h2 id="titulo-cada">Cadastro</h2>
       <br>
       <form (ngSubmit)="onRegisterSubmit()">
-        <div class="input-group">
-          <span class="input-group-text"><i class="bi bi-person icon-name"></i></span>
-          <input type="text" id="registerName" name="registerName" [(ngModel)]="registerName" placeholder="Nome">
-        </div>
+        <input type="text" id="registerName" name="registerName" [(ngModel)]="registerName" placeholder="Nome">
         <br />
         <input type="email" id="registerEmail" name="registerEmail" [(ngModel)]="registerEmail" required placeholder="E-mail"/>
         <br />

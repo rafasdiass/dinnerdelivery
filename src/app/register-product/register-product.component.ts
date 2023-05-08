@@ -16,16 +16,10 @@ export class RegisterProductComponent implements OnInit {
     imageUrl: '',
     quantity: 0,
     quantityCart: 0,
-<<<<<<< HEAD
     editingName: false,
     editingDescription: false,
     editingUnitPrice: false,
   };
-=======
-  };
-
-  items: Item[] = [];
->>>>>>> 7bfb2c77bc428d33ca7c38f3f3c2e859df49e31e
 
   constructor(private productService: ProductService) {}
 
@@ -43,16 +37,13 @@ export class RegisterProductComponent implements OnInit {
           imageUrl: '',
           quantity: 0,
           quantityCart: 0,
-<<<<<<< HEAD
           editingName: false,
           editingDescription: false,
           editingUnitPrice: false,
-=======
->>>>>>> 7bfb2c77bc428d33ca7c38f3f3c2e859df49e31e
         };
       });
     } else {
-      alert('Preencha todos os campos obrigatórios')
+      alert('Preencha todos os campos obrigatórios');
     }
   }
 }
