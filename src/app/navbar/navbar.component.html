@@ -1,22 +1,22 @@
 <nav>
   <div class="icon-container">
     <img src="assets/img/florrosada.png" id="logo-flor" class="logo-flor" alt="florrosada">
-    <a [routerLink]="['/']">
+    <a [routerLink]="['/']" [routerLinkActive]="['activated']" [routerLinkActiveOptions]="{exact:true}">
       <i class="bi bi-house nav-icon"></i>
     </a>
-    <a [routerLink]="['/carrinho']">
+    <a [routerLink]="['/carrinho']" [routerLinkActive]="['activated']" [routerLinkActiveOptions]="{exact:true}">
       <div class="cart-item-container">
         <i class="bi bi-cart nav-icon"></i>
-        <span *ngIf="totalItems > 0" class="cart-item-count">
-          {{ totalItems }}
+        <span *ngIf="this.cartService.totalItems > 0" class="activated">
+          {{ this.cartService.totalItems }}
           <span class="visually-hidden">número de itens no carrinho</span>
         </span>
       </div>
     </a>
-    <a [routerLink]="['/login']">
+    <a [routerLink]="['/login']" [routerLinkActive]="['activated']" [routerLinkActiveOptions]="{exact:true}">
       <i class="bi bi-person-circle nav-icon"></i>
     </a>
-    <a [routerLink]="['/register-product']">
+    <a [routerLink]="['/register-product']" [routerLinkActive]="['activated']" [routerLinkActiveOptions]="{exact:true}">
       <i class="bi bi-book nav-icon"></i>
     </a>
   </div>

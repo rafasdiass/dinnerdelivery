@@ -1,0 +1,25 @@
+<div class="container">
+  <div *ngFor="let item of items" class="item">
+    <div class="card">
+      <div class="img-box" [style.background-image]="'url(' + item.imageUrl + ')'"></div>
+      <div class="desc-box">
+        <label for="name">Nome:</label>
+        <span>{{item.name}}</span>
+        <i class="bi bi-pencil" (click)="enableEditing(item, 'name')"></i>
+        <input [(ngModel)]="item.name" id="name" name="name" class="form-control" [hidden]="!item.editingName">
+
+        <label for="description">Descrição:</label>
+        <span>{{item.description}}</span>
+        <i class="bi bi-pencil" (click)="enableEditing(item, 'description')"></i>
+        <input [(ngModel)]="item.description" id="description" name="description" class="form-control" [hidden]="!item.editingDescription">
+
+        <label for="unit_price">Preço:</label>
+        <span>{{item.unit_price}}</span>
+        <i class="bi bi-pencil" (click)="enableEditing(item, 'unit_price')"></i>
+        <input [(ngModel)]="item.unit_price" id="unit_price" name="unit_price" class="form-control" [hidden]="!item.editingUnitPrice">
+
+        <button (click)="updateProduct(item)" [hidden]="!(item.editingName || item.editingDescription || item.editingUnitPrice)">Atualizar</button>
+      </div>
+    </div>
+  </div>
+</div>

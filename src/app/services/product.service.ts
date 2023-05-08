@@ -2,44 +2,58 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Item } from '../item-list/item.model';
+import { CartService } from './cart.service'; // Certifique-se de que o caminho do import esteja correto
+import { tap } from 'rxjs/operators';
+import { api } from '../api';
+
+export type Cart = {
+  id: string;
+  id_users: string | null;
+  products: Array<Item>;
+  subtotal: number;
+}
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
-  private apiUrl = 'http://3.83.176.3/products'; // Substitua pelo endereço do seu servidor
+  private apiUrl = api.url;
 
   constructor(private http: HttpClient) {}
 
   // Cria um novo produto
   createProduct(product: Item): Observable<Item> {
-    return this.http.post<Item>(this.apiUrl, product);
+    return this.http.post<Item>(`${this.apiUrl}/products`, product).pipe(
+      tap((response) => {
+        localStorage.setItem('id', response.id);
+        console.log('id do Produto: ', localStorage.getItem('id'));
+      })
+    );
   }
 
   // Recupera todos os produtos
   getProducts(): Observable<Item[]> {
-    return this.http.get<Item[]>(this.apiUrl);
+    const response = this.http.get<Item[]>(`${this.apiUrl}/products`);
+    return response;
   }
 
   // Recupera um produto pelo ID
-  getProductById(id: number): Observable<Item> {
+  getProductById(id: string): Observable<Item> {
     return this.http.get<Item>(`${this.apiUrl}/${id}`);
   }
 
   // Atualiza um produto
-  updateProduct(id: number, product: Item): Observable<Item> {
+  updateProduct(id: string, product: Item): Observable<Item> {
     return this.http.put<Item>(`${this.apiUrl}/${id}`, product);
   }
 
   // Exclui um produto
-  deleteProduct(id: number): Observable<void> {
+  deleteProduct(id: string): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
-  // Adiciona um produto ao carrinho
-  addProductToCart(productId: number, quantity: number, cartId: number): Observable<any> {
-    // Substitua a URL abaixo pela URL da API do seu servidor
-    const apiUrl = `http://3.83.176.3/add-product/${productId}/${quantity}/${cartId}`;
-    return this.http.post<any>(apiUrl, {});
-  }
 }
+
+
+// 70df3aad-6787-4844-9777-cce40bc1fdcc
+// e6fded3d-41e7-40db-b865-5c84fc14da8d

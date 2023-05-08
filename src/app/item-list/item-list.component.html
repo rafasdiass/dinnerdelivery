@@ -9,11 +9,11 @@
           <p class="tituloItem">{{item.name}}</p>
           <p class="descricaoItem">{{item.description}}</p>
           <p class="precoItem">Preço: {{item.unit_price}}</p>
-        <button id="addItem" (click)="addItem(item, item.quantity)">Adicionar ao carrinho</button>
+        <button id="addItem" (click)="addProductToCart(item.id, item.quantityCart)">Adicionar ao carrinho</button>
         <div class="item-quantity">
-          <button id="btDiminui" (click)="decreaseQuantity(item)" [disabled]="item.quantity === 0">-</button>
-          <span>{{item.quantity}}</span>
-          <button id="btAumenta" (click)="increaseQuantity(item)" [disabled]="item.quantity === 10">+</button>
+          <button id="btDiminui" (click)="decreaseQuantity(item)" [disabled]="item.quantityCart === 0">-</button>
+          <span>{{item.quantityCart}}</span>
+          <button id="btAumenta" (click)="increaseQuantity(item)" [disabled]="item.quantityCart === 10">+</button>
         </div>
       </div>
     </div>

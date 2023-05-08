@@ -1,6 +1,6 @@
 <div class="container">
   <div class="form-container">
-    <form #productForm="ngForm" (ngSubmit)="addProduct(productForm)">
+    <form #productForm="ngForm" (ngSubmit)="createProduct()">
       <div class="input-group">
         <span class="input-group-text"><i class="bi bi-card-text icon-name"></i></span>
         <input type="text" id="name" name="name" [(ngModel)]="newProduct.name" class="form-control" placeholder="Nome" required>
@@ -26,6 +26,8 @@
       </div>
 
       <button type="submit" [disabled]="!productForm.valid">Cadastrar</button>
+      <!-- Botão para listar produtos cadastrados -->
+      <button routerLink="/list-registered-products">Listar Produtos Cadastrados</button>
     </form>
   </div>
 </div>

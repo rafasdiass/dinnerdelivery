@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { api } from '../api';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TokenRefreshService {
-  private apiUrl = 'http://34.227.223.49'; // Atualize para o domínio da sua API
+  private apiUrl = api.url
 
   constructor(private http: HttpClient) {}
 

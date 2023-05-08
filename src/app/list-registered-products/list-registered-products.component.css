@@ -1,0 +1,51 @@
+/* list-registered-products.component.css */
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  padding-top: 60px;
+}
+
+table {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  text-align: left;
+}
+
+thead {
+  background-color: #f5f5f5;
+}
+
+th,
+td {
+  padding: 8px 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+th {
+  font-weight: 500;
+}
+
+td {
+  font-weight: 400;
+}
+
+tr {
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.edit-pencil {
+  cursor: pointer;
+  color: #007bff;
+}
+
+.item-description {
+  color: #6c757d;
+}

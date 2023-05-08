@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { api } from '../api';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'http://3.83.176.3'; // Atualize para o domínio da sua API
+  private apiUrl = api.url;
 
   constructor(private http: HttpClient) {}
 
@@ -19,7 +20,12 @@ export class AuthService {
     );
   }
 
-  register(user: { name: string; email: string; password: string; address: string }): Observable<any> {
+  register(user: {
+    name: string;
+    email: string;
+    password: string;
+    address: string;
+  }): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/users`, user);
   }
 
