@@ -8,7 +8,7 @@ import {
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, switchMap, tap } from 'rxjs/operators';
-import { TokenRefreshService } from './token-refresh.service';
+import { TokenRefreshService } from './services/token-refresh.service';
 
 @Injectable() // Adicione o decorador @Injectable() aqui
 export class AuthInterceptor implements HttpInterceptor {

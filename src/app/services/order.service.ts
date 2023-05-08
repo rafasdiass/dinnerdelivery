@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { api } from '../api';
 
 @Injectable({
   providedIn: 'root',
 })
 export class OrderService {
-  private apiUrl = 'http://52.55.161.218';
+  private apiUrl = api.url;
 
   //Injetando serviço HttpClient no contrutor
   constructor(private http: HttpClient) {}

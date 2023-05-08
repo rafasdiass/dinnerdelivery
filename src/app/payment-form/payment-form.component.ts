@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { OrderService } from '../order.service';
+import { OrderService } from '../services/order.service';
 
 @Component({
   selector: 'app-payment-form',
