@@ -20,8 +20,8 @@ export class ItemListComponent implements OnInit {
   //   new Item('6', 'Tiramisu', '', 19.99, 'assets/img/doce4.jpeg', 0),
   // ];
 
-  items: Item[] = []
-  quantity: number = 0
+  items: Item[] = [];
+  quantity: number = 0;
 
   constructor(
     private cartService: CartService,
@@ -30,9 +30,9 @@ export class ItemListComponent implements OnInit {
   ) {}
 
   setQuantityCart(): void {
-    this.items.map(item => {
-      item.quantityCart = 0
-    })
+    this.items.map((item) => {
+      item.quantityCart = 0;
+    });
   }
 
   ngOnInit(): void {
@@ -71,8 +71,12 @@ export class ItemListComponent implements OnInit {
   }
 
   increaseQuantity(item: Item): void {
-    if (item.quantityCart < 10) {
-      item.quantityCart++;
+    if (item.quantity > item.quantityCart) {
+      if (item.quantityCart < 10) {
+        item.quantityCart++;
+      }
+    } else {
+      alert('Out of Stock Quantity')
     }
   }
 
@@ -81,13 +85,10 @@ export class ItemListComponent implements OnInit {
   }
 
   addProductToCart(productId: string, quantity: number) {
-    // const idCart: string | null = localStorage.getItem('idCart');
-    // console.log(idCart);
-    // if (idCart) {
-    //   this.productService.addProductToCartWithID(quantity, idCart);
-    // }
     const item = this.items.find((item) => item.id === productId);
 
     this.cartService.addProductToCart(productId, quantity);
+
+    this.items.map((item) => item.quantityCart = 0)
   }
 }

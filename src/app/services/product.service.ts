@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { Item } from '../item-list/item.model';
 import { CartService } from './cart.service'; // Certifique-se de que o caminho do import esteja correto
-import { tap } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import { api } from '../api';
 
 export type Cart = {
@@ -44,14 +44,18 @@ export class ProductService {
 
   // Atualiza um produto
   updateProduct(id: string, product: Item): Observable<Item> {
-    return this.http.put<Item>(`${this.apiUrl}/${id}`, product);
+    return this.http.put<Item>(`${this.apiUrl}/products/${id}`, product);
   }
 
   // Exclui um produto
   deleteProduct(id: string): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/products/${id}`).pipe(
+      catchError((error) => {
+        alert('Erro ao excluir o produto')
+        return throwError('Failed to delete product');
+      })
+    );
   }
-
 }
 
 
