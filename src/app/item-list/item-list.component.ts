@@ -41,6 +41,7 @@ export class ItemListComponent implements OnInit {
 
   loadItems(): void {
     this.productService.getProducts().subscribe((products) => {
+      console.log(products)
       if (products.length > 0) {
         this.items = products;
         this.setQuantityCart();

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { Item } from '../item-list/item.model';
@@ -51,13 +51,25 @@ export class ProductService {
   deleteProduct(id: string): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/products/${id}`).pipe(
       catchError((error) => {
-        alert('Erro ao excluir o produto')
+        alert('Erro ao excluir o produto');
         return throwError('Failed to delete product');
       })
     );
   }
+
+  uploadImage(formData: FormData, id: string): Observable<any> {
+
+    const formDataString = String(formData);
+    const boundaryMatch = formDataString.match(/boundary=(.*)/);
+    const boundary = boundaryMatch ? boundaryMatch[1] : undefined;
+
+    const headers = {
+      'Content-Type': 'multipart/form-data; boundary=' + boundary,
+    };
+    return this.http.patch(`${this.apiUrl}/products/import/${id}`, formData, {
+      headers: headers,
+      reportProgress: true,
+      observe: 'events',
+    });
+  }
 }
-
-
-// 70df3aad-6787-4844-9777-cce40bc1fdcc
-// e6fded3d-41e7-40db-b865-5c84fc14da8d
