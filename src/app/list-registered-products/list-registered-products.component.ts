@@ -32,26 +32,25 @@ export class ListRegisteredProductsComponent implements OnInit {
 
   updateProduct(item: Item): void {
 
-    // this.productService.updateProduct(item.id, item).subscribe(() => {
+    this.productService.updateProduct(item.id, item).subscribe(() => {
       console.log('Produto atualizado!');
       console.log(item)
       item.editingName = false;
       item.editingDescription = false;
       item.editingUnitPrice = false;
 
-    // });
+    });
   }
 
   deleteProduct(item: Item): void {
     const index = this.items.findIndex(product => item.id === product.id);
     console.log(index)
     if (confirm(`Tem certeza que deseja excluir este produto?`)){
-      this.items.splice(index, 1)
-      console.log(this.items)
       this.productService.deleteProduct(item.id).subscribe(() => {
         console.log('Produto deletado');
         this.items = this.items.filter(i => i.id !== item.id);
-      });
+
+      })
 
     }
   }

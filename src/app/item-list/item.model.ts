@@ -3,7 +3,7 @@ export class Item {
   name: string;
   description: string;
   unit_price: number;
-  imageUrl: string;
+  product_url: string;
   quantity: number;
   quantityCart: number;
   editingName: boolean;
@@ -15,7 +15,7 @@ export class Item {
     this.name = name;
     this.description = description;
     this.unit_price = unit_price;
-    this.imageUrl = imageUrl;
+    this.product_url = imageUrl;
     this.quantity = quantity;
     this.quantityCart = quantityCart;
     this.editingName = false;
