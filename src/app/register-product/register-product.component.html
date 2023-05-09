@@ -16,6 +16,7 @@
           [(ngModel)]="newProduct.name"
           class="form-control shadow-none"
           placeholder="*Nome"
+          required
         />
       </div>
 
@@ -50,7 +51,7 @@
 
       <div class="input-group">
         <span class="input-group-text"><i class="bi bi-image icon-image"></i></span>
-        <input type="file" id="image" name="image" [(ngModel)]="newProduct.product_url" class="form-control shadow-none" placeholder="URL da Imagem">
+        <input type="file" id="image" name="image" class="form-control shadow-none" placeholder="URL da Imagem" (change)="onFileSelected($event)">
       </div>
 
       <div class="input-group">

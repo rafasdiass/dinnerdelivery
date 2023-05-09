@@ -1,17 +1,9 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { Item } from '../item-list/item.model';
-import { CartService } from './cart.service'; // Certifique-se de que o caminho do import esteja correto
 import { catchError, tap } from 'rxjs/operators';
+import { Item } from '../item-list/item.model';
 import { api } from '../api';
-
-export type Cart = {
-  id: string;
-  id_users: string | null;
-  products: Array<Item>;
-  subtotal: number;
-}
 
 @Injectable({
   providedIn: 'root',
@@ -21,7 +13,6 @@ export class ProductService {
 
   constructor(private http: HttpClient) {}
 
-  // Cria um novo produto
   createProduct(product: Item): Observable<Item> {
     return this.http.post<Item>(`${this.apiUrl}/products`, product).pipe(
       tap((response) => {
@@ -31,23 +22,19 @@ export class ProductService {
     );
   }
 
-  // Recupera todos os produtos
   getProducts(): Observable<Item[]> {
     const response = this.http.get<Item[]>(`${this.apiUrl}/products`);
     return response;
   }
 
-  // Recupera um produto pelo ID
   getProductById(id: string): Observable<Item> {
     return this.http.get<Item>(`${this.apiUrl}/${id}`);
   }
 
-  // Atualiza um produto
   updateProduct(id: string, product: Item): Observable<Item> {
     return this.http.put<Item>(`${this.apiUrl}/products/${id}`, product);
   }
 
-  // Exclui um produto
   deleteProduct(id: string): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/products/${id}`).pipe(
       catchError((error) => {
@@ -57,19 +44,8 @@ export class ProductService {
     );
   }
 
-  uploadImage(formData: FormData, id: string): Observable<any> {
-
-    const formDataString = String(formData);
-    const boundaryMatch = formDataString.match(/boundary=(.*)/);
-    const boundary = boundaryMatch ? boundaryMatch[1] : undefined;
-
-    const headers = {
-      'Content-Type': 'multipart/form-data; boundary=' + boundary,
-    };
-    return this.http.patch(`${this.apiUrl}/products/import/${id}`, formData, {
-      headers: headers,
-      reportProgress: true,
-      observe: 'events',
-    });
+  uploadFile(productId: string, formData: FormData): Observable<any> {
+    // Atualizando a URL para a rota correta e incluindo o ID do produto
+    return this.http.patch<any>(`${this.apiUrl}/products/import/${productId}`, formData);
   }
 }
