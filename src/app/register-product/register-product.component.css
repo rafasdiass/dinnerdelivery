@@ -45,14 +45,15 @@
 }
 
 input {
-  font-size: 14px;
-  margin-top: 4px;
-  border-radius: 4px;
+  font-size: 12px;
+  margin-top: 0.313rem;
+  border-radius: 0.25;
   transition: all linear 160ms;
   outline: none;
 }
 
-input,#description:focus {
+.input-group input:focus,
+.input-group textarea:focus {
   border: 1px solid #c02727;
 }
 

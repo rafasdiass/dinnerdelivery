@@ -40,3 +40,21 @@ a:hover {
   background-color: var(--cart-item-count-bg);
   color: var(--text-color);
 }
+
+/* MASCARAS */
+
+
+
+/* Media Query Response */
+
+@media ( max-width : 767px) {
+	.is-mobile {
+		display: block;
+	}
+}
+
+@media ( min-width : 768px) {
+	.is-desktop {
+		display: block;
+	}
+}
