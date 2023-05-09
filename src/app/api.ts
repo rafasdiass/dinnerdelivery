@@ -1,3 +1,3 @@
 export const api = {
-  url: 'http://100.26.98.83',
-}
+  url: 'http://18.228.24.77',
+};
