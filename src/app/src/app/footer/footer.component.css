@@ -1,0 +1,180 @@
+/* Estilos gerais */
+* {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.rodape {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 14rem;
+  background-color: #a52a2a73;
+  align-items: center;
+  justify-items: center;
+  flex-direction: column;
+  color: #ffffff;
+  margin-top: 7rem;
+}
+
+/* Contato no rodapé */
+#contato {
+  margin-top: 0.8rem;
+  font-size: 2rem;
+}
+
+.dados-contato {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 0.5rem;
+}
+
+/* Rede social no rodapé */
+.rede-social {
+  margin-top: 1.3rem;
+  margin-bottom: 1.2rem;
+}
+
+/* Copyright no rodapé */
+#Copyright {
+  font-size: 12px;
+}
+
+/* Efeito de hover nos links */
+a:hover {
+  filter: brightness(0.55);
+}
+
+/* Espaçamento entre ícones de links */
+a {
+  padding: 8px 7px;
+  color: #ffffff;
+}
+
+/* Estilo dos links das redes sociais */
+.links {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Estilo do botão de alternar tema */
+.theme-switcher {
+  margin-top: 1rem;
+}
+
+.theme-toggle-btn {
+  background-color: var(--text-color);
+  color: var(--background-color);
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.theme-toggle-btn:hover {
+  background-color: var(--text-color-hover);
+  color: var(--background-color-hover);
+}
+
+.btn-custom {
+  background-color: #89CFF0; /* Cor azul bebê */
+  color: #FF4500; /* Cor vermelha mais vibrante */
+  border: none;
+  transition: 0.3s;
+}
+
+.btn-custom:hover {
+  background-color: #73B1D6; /* Cor azul um pouco mais escura */
+  color: #FF0000; /* Cor vermelho puro */
+}
+.theme-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  width: 60px;
+  background-color: #f0f0f0;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.theme-icon {
+  font-size: 1.5rem;
+  opacity: 0.4;
+}
+
+.active-icon {
+  opacity: 1;
+}
+/* Estilos do interruptor em formato de slide */
+.theme-toggle {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.theme-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Estilos para os ícones de sol e lua */
+.sun-icon {
+  color: #FFD700;
+  margin-right: 5px;
+}
+
+.moon-icon {
+  color: #4B0082;
+  margin-left: 5px;
+}
+
+/* Estilo para posicionar corretamente o interruptor e os ícones */
+.theme-icons-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

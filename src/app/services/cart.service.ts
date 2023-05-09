@@ -56,26 +56,15 @@ export class CartService {
     this.cartChanged.next(0);
   }
 
-  increaseItemQuantity(productId: string): void {
+  async increaseItemQuantity(productId: string) {
+    await this.addProductToCart(productId, 1);
 
-    const indexProduct = this.cart?.products.findIndex(
-      (product) => product.id === productId
-    );
-    const product = this.cart?.products.map((product) => {
+    this.cart?.products.map((product) => {
       if (product.id === productId) {
         product.quantity++;
       }
     });
 
-    if (this.cart) {
-      this.cart.subtotal = this.atualizaSubTotal();
-    }
-
-    this.totalItems = this.cart?.products.length as number;
-
-    if ((indexProduct as number) >= 0) {
-      this.addProductToCart(productId, 1);
-    }
   }
 
   decreaseItemQuantity(productId: string): void {
@@ -87,16 +76,16 @@ export class CartService {
       (product) => product.id === productId
     );
 
-    console.log(indexProduct);
-
     this.cart?.products.map((product) => {
-      if (product.quantity > 1) {
-        product.quantity--;
-        quantity = product.quantity;
-      } else {
-        product.quantity--;
-        quantity = product.quantity;
-        ultimoProduto = true;
+      if (product.id === productId) {
+        if (product.quantity > 1) {
+          product.quantity--;
+          quantity = product.quantity;
+        } else {
+          product.quantity--;
+          quantity = product.quantity;
+          ultimoProduto = true;
+        }
       }
     });
 
@@ -110,8 +99,8 @@ export class CartService {
 
     this.totalItems = this.cart?.products.length as number;
 
-    if(this.cart?.subtotal === 0) {
-      localStorage.removeItem('idCart')
+    if (this.cart?.subtotal === 0) {
+      localStorage.removeItem('idCart');
     }
 
     this.http
@@ -159,7 +148,7 @@ export class CartService {
       .pipe(
         map((response) => {
           const cart = response as Cart;
-          console.log(cart)
+          console.log(cart);
           this.totalItems = cart.products.length;
           return cart;
         })

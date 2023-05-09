@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { Item } from '../item-list/item.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-register-product',
@@ -12,8 +13,8 @@ export class RegisterProductComponent implements OnInit {
     id: '',
     name: '',
     description: '',
+    product_url: '',
     unit_price: 0,
-    imageUrl: '',
     quantity: 0,
     quantityCart: 0,
     editingName: false,
@@ -21,29 +22,37 @@ export class RegisterProductComponent implements OnInit {
     editingUnitPrice: false,
   };
 
+  formData = new FormData();
+  selectedFile: File | null = null;
+
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {}
 
+  onFileSelected(event: any): void {
+    if (event.target.files && event.target.files[0]) {
+      this.selectedFile = event.target.files[0];
+    }
+  }
+
   createProduct(): void {
     if (this.newProduct.name && this.newProduct.description && this.newProduct.unit_price) {
-      this.productService.createProduct(this.newProduct).subscribe((response) => {
-        console.log('Produto criado com sucesso!');
-        this.newProduct = {
-          id: '',
-          name: '',
-          description: '',
-          unit_price: 0,
-          imageUrl: '',
-          quantity: 0,
-          quantityCart: 0,
-          editingName: false,
-          editingDescription: false,
-          editingUnitPrice: false,
-        };
+      this.saveProduct().subscribe((response) => {
+        const productId = response.id;
+        if (this.selectedFile) {
+          this.formData.append('image', this.selectedFile, this.selectedFile.name);
+          this.productService.uploadFile(productId, this.formData).subscribe((response) => {
+            this.newProduct.product_url = response.url;
+            console.log('Arquivo enviado com sucesso!');
+          });
+        }
       });
     } else {
-      console.log('Preencha todos os campos obrigatórios.');
+      alert('Preencha todos os campos obrigatórios');
     }
+  }
+
+  saveProduct(): Observable<Item> {
+    return this.productService.createProduct(this.newProduct);
   }
 }

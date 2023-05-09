@@ -4,16 +4,20 @@
 <div class="container2">
   <div *ngFor="let item of items" class="item">
     <div class="card border-danger h-100">
-      <div class="img-box product1" [style.background-image]="'url(' + item.imageUrl + ')'"></div>
+      <div class="img-box product1" [style.background-image]="'url(' + item.product_url + ')'"></div>
       <div class="desc-box">
           <p class="tituloItem">{{item.name}}</p>
           <p class="descricaoItem">{{item.description}}</p>
           <p class="precoItem">Preço: {{item.unit_price}}</p>
-        <button id="addItem" (click)="addProductToCart(item.id, item.quantityCart)">Adicionar ao carrinho</button>
+        <button id="addItem" (click)="addProductToCart(item.id, item.quantityCart)">Adicionar ao carrinho<i class="bi bi-basket2"></i></button>
         <div class="item-quantity">
-          <button id="btDiminui" (click)="decreaseQuantity(item)" [disabled]="item.quantityCart === 0">-</button>
+          <button id="btDiminui" (click)="decreaseQuantity(item)" [disabled]="item.quantityCart === 0" class="btn btn-danger btn-sm">
+            <i class="bi bi-arrow-left"></i>
+          </button>
           <span>{{item.quantityCart}}</span>
-          <button id="btAumenta" (click)="increaseQuantity(item)" [disabled]="item.quantityCart === 10">+</button>
+          <button id="btAumenta" (click)="increaseQuantity(item)" [disabled]="item.quantityCart === 10" class="btn btn-danger btn-sm">
+            <i class="bi bi-arrow-right"></i>
+          </button>
         </div>
       </div>
     </div>

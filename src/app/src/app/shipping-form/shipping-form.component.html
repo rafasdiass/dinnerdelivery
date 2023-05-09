@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="formulario">
+
+    <form #shippingForm="ngForm" (ngSubmit)="onSubmit(shippingForm)">
+      <input type="text" id="name" name="name" [(ngModel)]="name" required placeholder="Nome"/>
+      <br />
+      <input type="text" id="number" name="number" [(ngModel)]="number" required placeholder="Celular"/>
+      <br />
+      <div *ngIf="shippingOption === 'delivery'">
+        <input type="text" id="street" name="street" [(ngModel)]="street" required placeholder="Logradouro"/>
+        <br />
+        <input type="text" id="neighborhood" name="neighborhood" [(ngModel)]="neighborhood" required placeholder="Bairro"/>
+        <br />
+        <input type="text" id="zipcode" name="zipcode" [(ngModel)]="zipcode" required placeholder="CEP"/>
+        <br />
+        <input type="text" id="reference" name="reference" [(ngModel)]="reference" placeholder="Ponto de referência"/>
+       
+        <br />
+        <select name="forma-pagamento" id="forma-pagamento" (change)="mostrarCampoDinheiro()">
+          <option value="">Forma de pagamento</option>
+          <option value="cartão">Cartão</option>
+          <option value="dinheiro">Dinheiro</option>
+        </select>
+        <div id="campo-dinheiro" style="display: none;">
+          <input type="text" id="valorDinheiro" name="valorDinheiro" placeholder="Valor em dinheiro">
+           <label for="troco">Troco:</label> 
+          <input type="text" id="trocoDinheiro" name="trocoDinheiro" readonly>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div id="btComprar"name="btComprar">
+    <div class="total">
+      <h3>Total: R$ </h3>
+      <button type="submit" id="btFinCompra" (click)="onSubmit(shippingForm)" routerLink="/shipping">Finalizar Compra</button>
+    </div>
+  </div>
+</div>  
+

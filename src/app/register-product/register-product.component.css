@@ -1,30 +1,94 @@
-body {
-    min-height: 100vh;
-    display: flex;
-    align-items: flex-start; /* faz o conteúdo alinhar ao topo */
-    justify-content: center;
-    padding-top: 3rem; /* adicione espaço no topo do body */
-  }
+.container{
+  display: flex;
+  margin-top: 7rem;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  width: 100%;
+}
+
+/* campos formulario */
+.form-container{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.input-group {
+  padding: 0.8rem;
+  border-radius: 4px;
+  transition: all linear 160ms;
+  height: 2rem;
+  width: 30rem;
+  border: none;
+  outline: none;
+  margin-bottom: 2rem;
+}
+
+.input-group-text{
+  display: flex;
+  margin-top: 0.3rem;
+  height: 2rem;
+  margin-right: 3px;
   
-  .form-container {
-    width: 50%;
-    max-width: 600px; /* ajuste o valor para controlar a largura máxima do formulário */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 3rem; /* adicione espaço ao redor do formulário */
-  }
-  
-  .input-group {
-    margin-bottom: 1rem;
-  }
-  
-  .input-group-text {
-    background-color: #ffffff;
-    border: 1px solid #ced4da;
-    border-right: none;
-    border-radius: 0.25rem 0 0 0.25rem;
-  }
+}
+
+#input-group-description{
+  padding: 30px 14px 30px 10px;
+}
+
+#description{
+  display: flex;
+  margin-top: 0.3rem;
+  margin-bottom: 15rem;
+  justify-content: center;
+}
+
+input {
+  font-size: 12px;
+  margin-top: 0.313rem;
+  border-radius: 0.25;
+  transition: all linear 160ms;
+  outline: none;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  border: 1px solid #c02727;
+}
+
+
+
+/* estilo botões */
+
+button{
+  width: 13.5rem;
+  height: 2.5rem;
+  background-color: #b64040;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  border: none !important;
+  transition: all linear 160ms;
+  cursor: pointer;
+  margin: 0 !important;
+  border-radius: 4px;
+}
+
+.container-button{
+  display: flex;
+  gap: 1rem; 
+  margin-left: 1rem;
+}
+
+button:hover {
+  background-color: #532525;
+  transform: scale(1.05);
+}
+
+#listProduct{
+  font-size: small;
+}
   
   .form-control {
     border-left: none;

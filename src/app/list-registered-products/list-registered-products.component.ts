@@ -24,29 +24,34 @@ export class ListRegisteredProductsComponent implements OnInit {
     });
   }
 
-  enableEditing(item: Item, field: string): void {
-    if (field === 'name') {
-      item.editingName = true;
-    } else if (field === 'description') {
-      item.editingDescription = true;
-    } else if (field === 'unit_price') {
-      item.editingUnitPrice = true;
-    }
+  enableEditing(item: Item): void {
+      item.editingName = !item.editingName;
+      item.editingDescription = !item.editingDescription;
+      item.editingUnitPrice = !item.editingUnitPrice;
   }
 
   updateProduct(item: Item): void {
+
     this.productService.updateProduct(item.id, item).subscribe(() => {
-      console.log('Produto atualizado');
+      console.log('Produto atualizado!');
+      console.log(item)
       item.editingName = false;
       item.editingDescription = false;
       item.editingUnitPrice = false;
+
     });
   }
 
   deleteProduct(item: Item): void {
-    this.productService.deleteProduct(item.id).subscribe(() => {
-      console.log('Produto deletado');
-      this.items = this.items.filter(i => i.id !== item.id);
-    });
+    const index = this.items.findIndex(product => item.id === product.id);
+    console.log(index)
+    if (confirm(`Tem certeza que deseja excluir este produto?`)){
+      this.productService.deleteProduct(item.id).subscribe(() => {
+        console.log('Produto deletado');
+        this.items = this.items.filter(i => i.id !== item.id);
+
+      })
+
+    }
   }
 }

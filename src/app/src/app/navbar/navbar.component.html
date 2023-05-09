@@ -1,0 +1,31 @@
+<nav>
+  <div class="icon-container">
+    <img src="assets/img/florrosada.png" id="logo-flor" class="logo-flor" alt="florrosada">
+    <a [routerLink]="['/']" [routerLinkActive]="['activated']" [routerLinkActiveOptions]="{exact:true}">
+      <i class="bi bi-house nav-icon"></i>
+    </a>
+    <a [routerLink]="['/carrinho']" [routerLinkActive]="['activated']" [routerLinkActiveOptions]="{exact:true}">
+      <div class="cart-item-container">
+        <i class="bi bi-cart nav-icon"></i>
+        <span *ngIf="this.cartService.totalItems > 0" class="activated">
+          {{ this.cartService.totalItems }}
+          <span class="visually-hidden">número de itens no carrinho</span>
+        </span>
+      </div>
+    </a>
+    <a [routerLink]="['/login']" [routerLinkActive]="['activated']" [routerLinkActiveOptions]="{exact:true}">
+      <i class="bi bi-person-circle nav-icon"></i>
+    </a>
+    <a [routerLink]="['/register-product']" [routerLinkActive]="['activated']" [routerLinkActiveOptions]="{exact:true}">
+      <i class="bi bi-book nav-icon"></i>
+    </a>
+  </div>
+  <div class="search-container">
+    <form action="#" class="d-flex">
+      <input type="search" id="cp-pesquisar" placeholder="Pesquisar" aria-label="Search"/>
+      <button id="btn-pesquisar">
+        <i class="bi bi-search"></i>
+      </button>
+    </form>
+  </div>
+</nav>
