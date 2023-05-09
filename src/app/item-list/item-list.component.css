@@ -117,10 +117,3 @@
 #btAumenta:hover {
   background-color: #532525;
 }
-
-#btDiminui:disabled,
-#btAumenta:disabled {
-  background-color: #A52A2A;
-  opacity: 0.5;
-  cursor: not-allowed;
-}

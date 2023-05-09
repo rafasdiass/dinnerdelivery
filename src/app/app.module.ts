@@ -23,10 +23,6 @@ import { AuthInterceptor } from './auth.interceptor';
 import { ProductService } from './services/product.service';
 import { OrderService } from './services/order.service';
 import { CartService } from './services/cart.service';
-// import { FileUploadModule } from 'ng2-file-upload';
-// import { NgxFileDropModule } from 'ngx-file-drop';
-
-
 
 // Importações do angularx-social-login
 import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from 'angularx-social-login';
@@ -58,8 +54,6 @@ import { ListRegisteredProductsComponent } from './list-registered-products/list
     FontAwesomeModule,
     HttpClientModule,
     SocialLoginModule,
-    // FileUploadModule,
-    // NgxFileDropModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
