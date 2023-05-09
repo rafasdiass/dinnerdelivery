@@ -37,7 +37,7 @@ export class RegisterProductComponent implements OnInit {
           name: '',
           description: '',
           unit_price: 0,
-          imageUrl: '',
+          product_url: '',
           quantity: 0,
           quantityCart: 0,
           editingName: false,
