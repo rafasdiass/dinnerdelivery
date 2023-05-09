@@ -30,8 +30,11 @@ export class RegisterProductComponent implements OnInit {
   ngOnInit(): void {}
 
   onFileSelected(event: any): void {
-    if (event.target.files && event.target.files[0]) {
+    if (event.target.files && event.target.files.length > 0) {
       this.selectedFile = event.target.files[0];
+      console.log('Arquivo selecionado:', this.selectedFile);
+    } else {
+      this.selectedFile = null;
     }
   }
 
@@ -39,11 +42,16 @@ export class RegisterProductComponent implements OnInit {
     if (this.newProduct.name && this.newProduct.description && this.newProduct.unit_price) {
       this.saveProduct().subscribe((response) => {
         const productId = response.id;
+        console.log('ID do produto:', productId);
         if (this.selectedFile) {
           this.formData.append('image', this.selectedFile, this.selectedFile.name);
+          console.log('FormData:');
+          this.formData.forEach((value, key) => {
+            console.log(`${key}:`, value);
+          });
           this.productService.uploadFile(productId, this.formData).subscribe((response) => {
             this.newProduct.product_url = response.url;
-            console.log('Arquivo enviado com sucesso!');
+            console.log('Arquivo enviado com sucesso!', response);
           });
         }
       });
