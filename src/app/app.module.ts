@@ -29,6 +29,8 @@ import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from 
 import { RegisterProductComponent } from './register-product/register-product.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ListRegisteredProductsComponent } from './list-registered-products/list-registered-products.component';
+import { FilterPipe } from './item-list/filter.pipe';
+
 
 @NgModule({
   declarations: [
@@ -44,6 +46,7 @@ import { ListRegisteredProductsComponent } from './list-registered-products/list
     RegisterProductComponent,
     NavbarComponent,
     ListRegisteredProductsComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
