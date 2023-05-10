@@ -8,12 +8,4 @@ import { ThemeService } from '../services/theme.service';
 })
 export class FooterComponent {
   constructor(private themeService: ThemeService) { }
-
-  onToggleTheme(): void {
-    this.themeService.toggleTheme();
-  }
-
-  isDarkTheme(): boolean {
-    return this.themeService.isDarkTheme();
-  }
 }
