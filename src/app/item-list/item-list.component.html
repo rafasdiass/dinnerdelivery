@@ -5,7 +5,7 @@
       <i class="btpesquisa ri-search-eye-line"></i>
     </form>
   </div>
-  
+
 </div>
 
 <div class="container2">
@@ -15,7 +15,7 @@
       <div class="desc-box">
           <p class="tituloItem">{{item.name}}</p>
           <p class="descricaoItem">{{item.description}}</p>
-          <p class="precoItem">Preço: {{item.unit_price}}</p>
+          <p class="precoItem">Preço: R$ {{ item.unit_price.toFixed(2).toString().replace('.', ',') }}</p>
           <button id="addItem" (click)="addProductToCart(item.id, item.quantityCart)">Adicionar ao carrinho<i class="bi bi-basket2"></i></button>
         <div class="item-quantity">
           <button id="btDiminui" (click)="decreaseQuantity(item)" [disabled]="item.quantityCart === 0" class="btn btn-danger btn-sm">-</button>
@@ -36,6 +36,5 @@
 </div>
 
 <app-footer></app-footer>
-
 <!-- Roteador -->
 <router-outlet></router-outlet>
