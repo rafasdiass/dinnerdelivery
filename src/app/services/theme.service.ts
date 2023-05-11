@@ -16,7 +16,6 @@ export class ThemeService {
     this.setTheme();
   }
 
-  // Função adicionada para verificar se o tema atual é escuro
   isDarkTheme(): boolean {
     return this.theme === 'dark';
   }
@@ -44,5 +43,12 @@ export class ThemeService {
     }
 
     localStorage.setItem('theme', this.theme);
+    this.updateBodyClass(); // Adicione esta linha
+  }
+
+  // Adicione este método
+  private updateBodyClass(): void {
+    const event = new CustomEvent('themeUpdated');
+    window.dispatchEvent(event);
   }
 }
