@@ -1,49 +1,9 @@
-/* Define o estilo do contêiner e organiza os itens em colunas */
-.container{
-  display: flex;
-  flex-direction: column;
-  margin-top: 3rem;
-}
-
-/* Define o estilo do título e posiciona-o */
-#titulo{
-  margin-top: 2rem;
-  margin-left: 2rem;
-  color: #ffffff; /* Texto branco total */
-}
-
-/* Define o estilo do espaço reservado para a tabela de itens */
-.table{
-  margin-top: 1rem;
-  margin-bottom: 15rem;
-  margin-right: 1rem;
-}
-
-/* Define o estilo para o total e os botões de compra e posiciona-os à direita */
-.text-right{
-  padding: 2rem 0.2rem;
-  color: #ffffff; /* Texto branco total */
-}
-
-/* Define o estilo do carrinho de compras */
-.cart {
-  background-color: rgb(226, 24, 24);
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-}
-
-/* Define o estilo do título do carrinho */
-.cart-title {
-  margin-top: 0;
-  margin-bottom: 20px;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
+/* cartitem.css */
 
 /* Define o estilo dos itens no carrinho */
 .cart-items {
   margin-bottom: 20px;
+  color: inherit;
 }
 
 /* Define o estilo de cada item do carrinho */
@@ -52,12 +12,14 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
+  color: inherit;
 }
 
 /* Define o estilo do nome do item no carrinho */
 .cart-item-name {
   margin: 0;
   font-size: 1.2rem;
+  color: inherit;
 }
 
 /* Define o estilo do preço do item no carrinho */
@@ -65,80 +27,5 @@
   margin: 0;
   font-size: 1.1rem;
   font-weight: bold;
-}
-
-/* Define o estilo da quantidade do item no carrinho */
-.cart-item-quantity {
-  display: flex;
-  align-items: center;
-}
-
-/* Define o estilo do botão de remoção do item no carrinho */
-.cart-item-remove {
-  width: 100px;
-}
-
-/* Define o estilo do botão de retirada no balcão */
-#retira-balcao{
-  margin-right: 1rem;
-}
-
-/* Define o estilo do botão de incremento e decremento */
-.btn-outline-primary{
-  background-color: #A52A2A;
-  border-color: #b1202073;
-  color: #ffffff;
-  margin-right: 1rem;
-}
-
-/* Define o estilo do botão de incremento e decremento quando o mouse está sobre ele */
-.btn-outline-primary:hover{
-  filter: brightness(0.70);
-}
-
-/* Define o estilo do botão de incremento e decremento quando clicado */
-.btn-outline-primary:active{
-  background-color: #b1202073;
-}
-
-/* Define o estilo dos botões "adicionar" e "finalizar compra" */
-.btn{
-  margin-right: 1rem;
-}
-
-/* Define o estilo do botão "adicionar" */
-.btn-primary{
-  background-color: #A52A2A;
-  border-color: #b1202073;
-}
-
-/* Define o estilo do botão "adicionar" quando o mouse está sobre ele */
-.btn-primary:hover{
-  filter: brightness(0.70);
-}
-
-/* Define o estilo do botão "adicionar" quando clicado */
-.btn-primary-primary:active{
-  background-color: #b1202073;
-}
-
-.btn-secondary{
-  background-color: #ffffff;
-  border-color: #b1202073;
-  color: #ca1a1a73;
-}
-
-.btn-secondary:hover{
-  background-color: #b1202073;
-  color: #ffffff;
-}
-
-.cart-item-count{
-  border-radius: 99px;
-}
-.table {
-  margin-top: 1rem;
-  margin-bottom: 15rem;
-  margin-right: 1rem;
-  color: #ffffff; /* Texto branco total */
+  color: inherit;
 }

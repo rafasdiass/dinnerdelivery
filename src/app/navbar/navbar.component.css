@@ -53,6 +53,49 @@
   position: relative;
 }
 
+/* Container de pesquisa */
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000; /* Adicionado z-index */
+}
+
+/* Campo de pesquisa */
+#cp-pesquisar {
+  width: 25rem;
+  height: 2.5rem;
+  padding: 0px 15px;
+  background: #a52a2a26;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border: none;
+  outline: none;
+  position: relative;
+}
+
+/* Botão de pesquisa */
+#btn-pesquisar {
+  display: flex;
+  height: 2.5rem;
+  font-size: 30px;
+  background: #a52a2a26;
+  align-items: center;
+  color: #ff00ff;
+  border: none;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 5px;
+}
+
+/* Estilo para o ícone de lupa do botão de pesquisa */
+.bi-search {
+  font-size: 1.25rem;
+}
 
 .sidebar {
   position: fixed;
