@@ -1,0 +1,11 @@
+/* dark-theme.css */
+:root {
+    --background-color: #000;
+    --text-color: #ffffff;
+    --input-background: #a52a2a26;
+    --footer-background: #a52a2a73;
+    --link-hover-color: #007bff;
+    --cart-item-count-bg: #ff0000;
+    --icon-color: black;
+    --icon-hover-color: #007bff;
+  }
