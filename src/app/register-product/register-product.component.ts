@@ -46,6 +46,10 @@ export class RegisterProductComponent implements OnInit {
     ) {
       this.saveProduct().subscribe((response) => {
         const productId = response.id;
+        this.newProduct.description = '';
+        this.newProduct.name = '';
+        this.newProduct.unit_price = 0;
+        this.newProduct.quantity = 0;
         console.log('ID do produto:', productId);
         if (this.selectedFile) {
           this.formData.append(
