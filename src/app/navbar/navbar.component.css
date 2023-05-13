@@ -65,19 +65,6 @@
   z-index: 1000; /* Adicionado z-index */
 }
 
-/* Campo de pesquisa */
-#cp-pesquisar {
-  width: 25rem;
-  height: 2.5rem;
-  padding: 0px 15px;
-  background: #a52a2a26;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border: none;
-  outline: none;
-  position: relative;
-}
-
 /* Estilo para o ícone de lupa do botão de pesquisa */
 .bi-search {
   font-size: 1.25rem;
