@@ -111,6 +111,13 @@
 }
 
 /* Define o estilo do nome do item no carrinho */
+
 .cart-item-name {
   margin: 0;
-  font-size: 1.
+  font-size: 1rem;
+  color: var(--text-color);
+  }
+
+  .cart-item-price {
+  color: var(--text-color);
+  }
