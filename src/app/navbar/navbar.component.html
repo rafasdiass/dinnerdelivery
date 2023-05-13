@@ -1,10 +1,23 @@
 <nav class="is-mobile">
   <div class="icon-container">
-    <img src="assets/img/DinnerDeliveryWhite.png" id="logo" class="logo" alt="DinnerDelivery">
-    <a [routerLink]="['/']" [routerLinkActive]="['activated']" [routerLinkActiveOptions]="{exact:true}">
+    <img
+      src="assets/img/DinnerDeliveryWhite.png"
+      id="logo"
+      class="logo"
+      alt="DinnerDelivery"
+    />
+    <a
+      [routerLink]="['/']"
+      [routerLinkActive]="['activated']"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
       <i class="bi bi-house nav-icon"></i>
     </a>
-    <a [routerLink]="['/carrinho']" [routerLinkActive]="['activated']" [routerLinkActiveOptions]="{exact:true}">
+    <a
+      [routerLink]="['/carrinho']"
+      [routerLinkActive]="['activated']"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
       <div class="cart-item-container">
         <i class="bi bi-cart nav-icon"></i>
         <span *ngIf="this.cartService.totalItems > 0" class="activated">
@@ -13,20 +26,27 @@
         </span>
       </div>
     </a>
-    <a [routerLink]="['/login']" [routerLinkActive]="['activated']" [routerLinkActiveOptions]="{exact:true}">
+    <a
+      [routerLink]="['/login']"
+      [routerLinkActive]="['activated']"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
       <i class="bi bi-person-circle nav-icon"></i>
     </a>
-    <a [routerLink]="['/register-product']" [routerLinkActive]="['activated']" [routerLinkActiveOptions]="{exact:true}">
+    <a
+      [routerLink]="['/register-product']"
+      [hidden]="!this.logged"
+      [routerLinkActive]="['activated']"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
       <i class="bi bi-book nav-icon"></i>
     </a>
     <!-- Adicionado ícone de engrenagem -->
-    <a (click)="toggleSidebar()" style="cursor: pointer;">
+    <a (click)="toggleSidebar()" style="cursor: pointer">
       <i class="bi bi-gear nav-icon"></i>
     </a>
   </div>
-  <div class="search-container">
-
-  </div>
+  <div class="search-container"></div>
 </nav>
 <!-- Adicionada barra lateral -->
 <div class="sidebar" *ngIf="showSidebar">
@@ -34,10 +54,16 @@
   <div class="theme-icons-container">
     <i class="bi bi-sun-fill sun-icon" aria-label="light-theme-icon"></i>
     <div class="theme-toggle">
-      <input type="checkbox" id="themeSwitch" (change)="onToggleTheme()" [checked]="isDarkTheme()">
+      <input
+        type="checkbox"
+        id="themeSwitch"
+        (change)="onToggleTheme()"
+        [checked]="isDarkTheme()"
+      />
       <label for="themeSwitch" class="slider"></label>
     </div>
     <i class="bi bi-moon-fill moon-icon" aria-label="dark-theme-icon"></i>
+    <br />
+    <button (click)="logout()">CLICQUE AQUI APRA SAIR</button>
   </div>
-
 </div>
