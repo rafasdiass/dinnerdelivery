@@ -3,11 +3,6 @@ body {
   color: var(--text-color);
 }
 
-#cp-pesquisar {
-  background: var(--input-background);
-  color: #ffffff;
-}
-
 .cart-login a {
   color: var(--icon-color);
 }
