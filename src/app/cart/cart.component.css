@@ -2,7 +2,7 @@
 .container{
   display: flex;
   flex-direction: column;
-  margin-top: 3rem;
+  margin-top: 7rem;
 }
 
 /* Define o estilo do título e posiciona-o */
