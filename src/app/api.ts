@@ -1,3 +1,3 @@
 export const api = {
-  url: 'http://18.228.24.77',
+  url: 'https://api.dinnerdelivery.com.br',
 };

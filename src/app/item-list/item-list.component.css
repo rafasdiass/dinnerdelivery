@@ -1,4 +1,7 @@
-
+html,
+body {
+  height: 100%;
+}
 
 /* Estilos gerais */
 * {
@@ -131,6 +134,7 @@
   height: 2.5rem;
   padding: 0px 15px;
   background: #a52a2a26;
+  color: #000;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   border: none;

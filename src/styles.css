@@ -1,15 +1,3 @@
-/* styles.css */
-:root {
-  --background-color: #000;
-  --text-color: #ffffff;
-  --input-background: #a52a2a26;
-  --footer-background: #a52a2a73;
-  --link-hover-color: #007bff;
-  --cart-item-count-bg: #ff0000;
-  --icon-color: black;
-  --icon-hover-color: #007bff;
-}
-
 body {
   background-color: var(--background-color);
   color: var(--text-color);
@@ -17,6 +5,7 @@ body {
 
 #cp-pesquisar {
   background: var(--input-background);
+  color: #ffffff;
 }
 
 .cart-login a {
@@ -48,8 +37,11 @@ a:hover {
 /* Media Query Response */
 
 @media ( max-width : 767px) {
-	.is-mobile {
+	.is-mobile,
+  .rodape,
+  .container {
 		display: block;
+    transform: scale(0.7);
 	}
 }
 

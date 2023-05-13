@@ -1,4 +1,4 @@
-<nav>
+<nav class="is-mobile">
   <div class="icon-container">
     <img src="assets/img/florrosada.png" id="logo-flor" class="logo-flor" alt="florrosada">
     <a [routerLink]="['/']" [routerLinkActive]="['activated']" [routerLinkActiveOptions]="{exact:true}">
@@ -19,8 +19,25 @@
     <a [routerLink]="['/register-product']" [routerLinkActive]="['activated']" [routerLinkActiveOptions]="{exact:true}">
       <i class="bi bi-book nav-icon"></i>
     </a>
+    <!-- Adicionado ícone de engrenagem -->
+    <a (click)="toggleSidebar()" style="cursor: pointer;">
+      <i class="bi bi-gear nav-icon"></i>
+    </a>
   </div>
   <div class="search-container">
 
   </div>
 </nav>
+<!-- Adicionada barra lateral -->
+<div class="sidebar" *ngIf="showSidebar">
+  <!-- Conteúdo da barra lateral aqui -->
+  <div class="theme-icons-container">
+    <i class="bi bi-sun-fill sun-icon" aria-label="light-theme-icon"></i>
+    <div class="theme-toggle">
+      <input type="checkbox" id="themeSwitch" (change)="onToggleTheme()" [checked]="isDarkTheme()">
+      <label for="themeSwitch" class="slider"></label>
+    </div>
+    <i class="bi bi-moon-fill moon-icon" aria-label="dark-theme-icon"></i>
+  </div>
+
+</div>
