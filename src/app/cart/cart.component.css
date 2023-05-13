@@ -118,19 +118,24 @@
 }
 
 /* Define o estilo do botão "adicionar" quando clicado */
-.btn-primary-primary:active{
+.btn-primary:active{
   background-color: #b1202073;
 }
 
 .btn-secondary{
-  background-color: #ffffff;
+  background-color: #b1202073;
   border-color: #b1202073;
-  color: #ca1a1a73;
+  color: #ffffff;
 }
 
 .btn-secondary:hover{
+ filter: brightness(0.70);
+ 
+}
+
+/* Define o estilo do botão "adicionar" quando clicado */
+.btn-secondary:active{
   background-color: #b1202073;
-  color: #ffffff;
 }
 
 .cart-item-count{
