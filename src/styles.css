@@ -21,9 +21,6 @@ a:hover {
   filter: brightness(0.55);
 }
 
-
-
-
 /* Logo */
 .logo {
   height: auto;
@@ -53,15 +50,15 @@ a:hover {
 
 /* Media Query Response */
 
-@media ( max-width : 767px) {
+@media ( max-width <= 767px) {
 	.is-mobile,
   .rodape,
-  .container {
+  .container, 
+  .icon-container a{
 		display: block;
-    transform: scale(0.7);
+    transform: scale(0.8);
 	}
 }
-
 @media ( min-width : 768px) {
 	.is-desktop {
 		display: block;
