@@ -10,16 +10,6 @@
   filter: brightness(50%);
 }
 
-/* Logo */
-.logo {
-  width: 180px; /* Ajuste o tamanho da imagem */
-  height: auto;
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  z-index: 1000; /* Adicionado z-index */
-}
-
 .icon-container {
   position: fixed;
   top: 10px;
