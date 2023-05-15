@@ -1,15 +1,9 @@
 <nav class="is-mobile">
   <div class="icon-container">
     <div class="logo">
-      <a 
-      [routerLink]="['/']"
-      >
-        <img
-          src="assets/img/DinnerDeliveryWhite.png"
-          alt="DinnerDelivery"
-        />
+      <a [routerLink]="['/']">
+        <img [src]="themeService.logoImage" alt="DinnerDelivery" />
       </a>
-
     </div>
     <a
       [routerLink]="['/']"

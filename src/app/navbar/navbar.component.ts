@@ -14,20 +14,30 @@ export class NavbarComponent implements OnInit, OnDestroy {
   public searchTerm: string = '';
   public showSidebar: boolean = false; // Adicionada variável para controlar a exibição da barra lateral
   public logged: boolean = localStorage.getItem('token') ? true : false;
+  public logoImage: string = '';
 
   constructor(
     public cartService: CartService,
-    private themeService: ThemeService // Adicione a injeção de dependência do serviço 'ThemeService'
+    public themeService: ThemeService // Adicione a injeção de dependência do serviço 'ThemeService'
   ) {
     this.cartChangedSubscription = null;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.updateLogoImage();
+  }
 
   ngOnDestroy(): void {
     if (this.cartChangedSubscription) {
       this.cartChangedSubscription.unsubscribe();
     }
+  }
+
+  updateLogoImage(): void {
+    let logoUrl = getComputedStyle(document.documentElement)
+      .getPropertyValue('--logo-image').trim();
+    // Remove 'url(' do início e ')' do final
+    this.logoImage = logoUrl.slice(4, -1).replace(/"/g, "");
   }
 
   logout(): void {
@@ -50,6 +60,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   // Função para alternar o tema
   onToggleTheme(): void {
     this.themeService.toggleTheme();
+    this.updateLogoImage();
   }
 
   // Função para verificar se o tema atual é escuro

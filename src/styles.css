@@ -50,15 +50,16 @@ a:hover {
 
 /* Media Query Response */
 
-@media ( max-width <= 767px) {
+@media ( max-width : 750px) {
 	.is-mobile,
   .rodape,
-  .container, 
-  .icon-container a{
+  .container,
+  .rodape {
 		display: block;
-    transform: scale(0.8);
+    transform: scale(0.7);
 	}
 }
+
 @media ( min-width : 768px) {
 	.is-desktop {
 		display: block;
