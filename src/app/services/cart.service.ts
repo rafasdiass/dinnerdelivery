@@ -190,4 +190,9 @@ export class CartService {
         });
       });
   }
+  getTotalCost(): number {
+    let deliveryFee = this.getDeliveryFee();
+    let subtotal = this.cart ? this.cart.subtotal : 0;
+    return subtotal + deliveryFee;
+  }
 }

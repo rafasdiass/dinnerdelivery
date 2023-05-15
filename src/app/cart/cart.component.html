@@ -33,7 +33,9 @@
     </label>
   </div>
   <div class="text-right">
-    <h3>Total: R$ {{ this.cartService.cart?.subtotal | number:'1.2-2' }}</h3>
+    <h3>Subtotal: R$ {{ this.cartService.cart?.subtotal | number:'1.2-2' }}</h3>
+    <h3>Taxa de Entrega: R$ {{ this.cartService.getDeliveryFee() | number:'1.2-2' }}</h3>
+    <h3>Total: R$ {{ this.cartService.getTotalCost() | number:'1.2-2' }}</h3>
     <button (click)="addMoreItems()" class="btn btn-secondary mr-2">Adicionar mais itens</button>
     <button (click)="checkout()" class="btn btn-primary">Continuar Compra</button>
   </div>
