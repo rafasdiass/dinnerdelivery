@@ -8,6 +8,8 @@
   --cart-item-count-bg: #ff0000;
   --icon-color: white;
   --icon-hover-color: #007bff;
+  --icon-sun: #ff0000;
+  --icon-moon: #000000;
 }
 
 /* Define o estilo do contêiner e organiza os itens em colunas */
@@ -197,4 +199,21 @@ background-color: var(--link-hover-color);
 .item-quantity,
 .item-subtotal {
   color: var(--text-color);
+}
+/* Define o estilo para os ícones de sol e lua */
+.sun-icon,
+.moon-icon {
+  color: var(--icon-color);
+}
+
+/* Define o estilo dos ícones de sol e lua quando o mouse está sobre eles */
+.sun-icon:hover,
+.moon-icon:hover {
+  color: var(--icon-hover-color);
+}
+
+/* Define o estilo dos ícones de sol e lua quando estão ativos */
+.sun-icon.active-icon,
+.moon-icon.active-icon {
+  color: var(--icon-hover-color);
 }

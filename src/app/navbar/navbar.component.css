@@ -13,19 +13,19 @@
 .icon-container {
   position: fixed;
   top: 10px;
-  right: 10px; /* alterado para right */
-  font-size: 30px; /* aumentado o tamanho dos ícones */
-  z-index: 1000; /* Adicionado z-index */
+  right: 10px;
+  font-size: 30px;
+  z-index: 1000;
 }
 
 .icon-container a {
-  color: #A52A2A; /* cor alterada para ff00ff */
+  color: #A52A2A;
   text-decoration: none;
   margin-right: 10px;
 }
 
 .icon-container a:hover {
-  color: #ffffff; /* cor alterada para branco ao passar o mouse */
+  color: #ffffff;
 }
 
 .cart-item-count {
@@ -82,16 +82,17 @@
 }
 
 .btn-custom {
-  background-color: #89CFF0; /* Cor azul bebê */
-  color: #FF4500; /* Cor vermelha mais vibrante */
+  background-color: #89CFF0;
+  color: #FF4500;
   border: none;
   transition: 0.3s;
 }
 
 .btn-custom:hover {
-  background-color: #73B1D6; /* Cor azul um pouco mais escura */
-  color: #FF0000; /* Cor vermelho puro */
+  background-color: #73B1D6;
+  color: #FF0000;
 }
+
 .theme-toggle {
   display: flex;
   justify-content: space-between;
@@ -105,12 +106,12 @@
 
 .theme-icon {
   font-size: 1.5rem;
-  opacity: 0.4;
 }
 
 .active-icon {
   opacity: 1;
 }
+
 /* Estilos do interruptor em formato de slide */
 .theme-toggle {
   position: relative;
@@ -150,31 +151,49 @@
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+background-color: #2196F3;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+box-shadow: 0 0 1px #2196F3;
 }
 
 input:checked + .slider:before {
-  transform: translateX(26px);
+transform: translateX(26px);
 }
 
 /* Estilos para os ícones de sol e lua */
 .sun-icon {
-  color: #FFD700;
-  margin-right: 5px;
+color: #FFD700;
+
 }
 
 .moon-icon {
-  color: #4B0082;
-  margin-left: 5px;
+color: #4B0082;
+
 }
 
-/* Estilo para posicionar corretamente o interruptor e os ícones */
 .theme-icons-container {
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+width: 100%;
+}
+.logout-btn {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #dc3545;
+  border: none;
+  background: none;
+  margin-top: 2rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: color 0.2s;
+  text-align: center; /* Centraliza o texto horizontalmente */
+}
+
+.logout-btn i {
+  margin-right: 0.5rem;
 }
