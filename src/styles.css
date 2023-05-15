@@ -16,8 +16,27 @@ body {
   color: var(--text-color);
 }
 
+
 a:hover {
   filter: brightness(0.55);
+}
+
+/* Logo */
+.logo {
+  height: auto;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000; /* Adicionado z-index */
+}
+
+.logo img {
+  width: 15rem; /* Ajuste o tamanho da imagem */
+  filter: brightness(100%); /* Adicionado filtro para remover o efeito hover */
+}
+
+.logo a:hover {
+  filter: none; /* Remova o filtro de brilho para desabilitar o efeito hover */
 }
 
 .cart-item-count {
@@ -31,15 +50,15 @@ a:hover {
 
 /* Media Query Response */
 
-@media ( max-width : 767px) {
+@media ( max-width <= 767px) {
 	.is-mobile,
   .rodape,
-  .container {
+  .container, 
+  .icon-container a{
 		display: block;
-    transform: scale(0.7);
+    transform: scale(0.8);
 	}
 }
-
 @media ( min-width : 768px) {
 	.is-desktop {
 		display: block;

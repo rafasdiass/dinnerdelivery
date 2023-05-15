@@ -1,11 +1,16 @@
 <nav class="is-mobile">
   <div class="icon-container">
-    <img
-      src="assets/img/DinnerDeliveryWhite.png"
-      id="logo"
-      class="logo"
-      alt="DinnerDelivery"
-    />
+    <div class="logo">
+      <a 
+      [routerLink]="['/']"
+      >
+        <img
+          src="assets/img/DinnerDeliveryWhite.png"
+          alt="DinnerDelivery"
+        />
+      </a>
+
+    </div>
     <a
       [routerLink]="['/']"
       [routerLinkActive]="['activated']"
@@ -46,7 +51,6 @@
       <i class="bi bi-gear nav-icon"></i>
     </a>
   </div>
-  <div class="search-container"></div>
 </nav>
 <!-- Adicionada barra lateral -->
 <div class="sidebar" *ngIf="showSidebar">

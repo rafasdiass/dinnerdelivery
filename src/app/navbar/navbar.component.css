@@ -10,16 +10,6 @@
   filter: brightness(50%);
 }
 
-/* Logo */
-.logo {
-  width: 180px; /* Ajuste o tamanho da imagem */
-  height: auto;
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  z-index: 1000; /* Adicionado z-index */
-}
-
 .icon-container {
   position: fixed;
   top: 10px;
@@ -51,18 +41,6 @@
 .cart-item-container {
   display: inline-block;
   position: relative;
-}
-
-/* Container de pesquisa */
-.search-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1000; /* Adicionado z-index */
 }
 
 /* Estilo para o ícone de lupa do botão de pesquisa */
