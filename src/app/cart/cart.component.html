@@ -11,14 +11,14 @@
     </thead>
     <tbody>
       <tr *ngFor="let item of this.cartService.cart?.products">
-        <td>{{ item.name }}</td>
-        <td>R$ {{ item.unit_price | number:'1.2-2' }}</td>
-        <td>
+        <td class="item-name">{{ item.name }}</td>
+        <td class="item-price">R$ {{ item.unit_price | number:'1.2-2' }}</td>
+        <td class="item-quantity">
           <button (click)="decreaseItemQuantity(item.id)" class="btn btn-outline-primary">-</button>
           {{ item.quantity }}
           <button (click)="increaseItemQuantity(item.id)" class="btn btn-outline-primary">+</button>
         </td>
-        <td>R$ {{ (item.unit_price * item.quantity) | number:'1.2-2' }}</td>
+        <td class="item-subtotal">R$ {{ (item.unit_price * item.quantity) | number:'1.2-2' }}</td>
       </tr>
     </tbody>
   </table>
