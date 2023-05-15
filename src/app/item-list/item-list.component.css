@@ -156,3 +156,7 @@ body {
   margin-top: 3rem;
   margin-left: 0.1rem;
 }
+
+.card.border-danger.h-100 {
+  border-color: transparent;
+}

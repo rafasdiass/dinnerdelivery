@@ -6,12 +6,11 @@
       <i class="btpesquisa ri-search-eye-line"></i>
     </form>
   </div>
-
 </div>
 
 <div class="container2">
   <div *ngFor="let item of items | filter:searchTerm" class="item">
-    <div class="card border-danger h-100">
+    <div class="card">
       <div class="img-box product1" [style.background-image]="'url(' + item.product_url + ')'"></div>
       <div class="desc-box">
           <p class="tituloItem">{{item.name}}</p>
