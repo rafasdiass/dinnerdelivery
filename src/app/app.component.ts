@@ -1,30 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ThemeService } from './services/theme.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent {
   title = 'dinnerdelivery';
-
-  constructor(private themeService: ThemeService) {}
-
-  ngOnInit(): void {
-    this.updateBodyClass();
-    window.addEventListener('themeUpdated', () => this.updateBodyClass());
-  }
-
-  ngOnDestroy(): void {
-    window.removeEventListener('themeUpdated', () => this.updateBodyClass());
-  }
-
-  updateBodyClass(): void {
-    if (this.themeService.isDarkTheme()) {
-      document.body.classList.add('dark');
-    } else {
-      document.body.classList.remove('dark');
-    }
-  }
 }

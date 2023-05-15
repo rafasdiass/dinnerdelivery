@@ -1,3 +1,3 @@
 export const api = {
-  url: 'api.dinnerdelivery.com.br',
+  url: 'https://api.dinnerdelivery.com.br/api',
 };

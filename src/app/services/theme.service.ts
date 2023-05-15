@@ -6,6 +6,9 @@ import { Injectable } from '@angular/core';
 export class ThemeService {
   private theme: 'dark' | 'light' = 'dark';
 
+  // Add logoImage variable here
+  public logoImage = 'assets/img/DinnerDeliveryWhite.png'; // Caminho da imagem padrão
+
   constructor() {
     this.loadTheme();
   }
@@ -13,9 +16,18 @@ export class ThemeService {
   toggleTheme(): void {
     this.theme = this.theme === 'dark' ? 'light' : 'dark';
     console.log('Tema atual:', this.theme);
+
+    // Update logoImage path based on theme
+    if (this.theme === 'dark') {
+      this.logoImage = 'assets/img/DinnerDeliveryWhite.png';
+    } else {
+      this.logoImage = 'assets/img/DinnerDelivery.png';
+    }
+
     this.setTheme();
   }
 
+  // Função adicionada para verificar se o tema atual é escuro
   isDarkTheme(): boolean {
     return this.theme === 'dark';
   }
@@ -43,12 +55,5 @@ export class ThemeService {
     }
 
     localStorage.setItem('theme', this.theme);
-    this.updateBodyClass(); // Adicione esta linha
-  }
-
-  // Adicione este método
-  private updateBodyClass(): void {
-    const event = new CustomEvent('themeUpdated');
-    window.dispatchEvent(event);
   }
 }

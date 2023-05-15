@@ -22,24 +22,6 @@
     margin-top: 30px;
   }
   
-  #cp-pesquisar{
-    width: 339px;
-    height: 44px;
-    padding: 0px 15px;
-    background: #a52a2a26;
-    border-radius: 10px;
-    border: none;
-    outline: none;
-    
-    margin-top: 30px;
-  }
-  
-  #cp-pesquisar::placeholder{
-    align-items: center;
-  }
-  
-  /* PRODUTOS */
-  
   
   
   
