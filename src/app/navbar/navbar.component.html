@@ -48,6 +48,7 @@
 </nav>
 <!-- Adicionada barra lateral -->
 <div class="sidebar" *ngIf="showSidebar">
+  <!-- Conteúdo da barra lateral aqui -->
   <div class="theme-icons-container">
     <i class="bi bi-sun-fill sun-icon" aria-label="light-theme-icon"></i>
     <div class="theme-toggle">
@@ -60,11 +61,9 @@
       <label for="themeSwitch" class="slider"></label>
     </div>
     <i class="bi bi-moon-fill moon-icon" aria-label="dark-theme-icon"></i>
-  </div>
-  <div class="sidebar-content">
+    <br />
     <button (click)="logout()" class="logout-btn">
       <i class="bi bi-door-open-fill"></i> Logout
     </button>
   </div>
 </div>
-

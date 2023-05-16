@@ -116,8 +116,8 @@
 .theme-toggle {
   position: relative;
   display: inline-block;
-  width: 50px;
-  height: 24px;
+  width: 100px; /* Aumentado para o tamanho desejado */
+  height: 34px; /* Mantido o mesmo para não aumentar verticalmente */
 }
 
 .theme-toggle input {
@@ -135,31 +135,31 @@
   bottom: 0;
   background-color: #ccc;
   transition: 0.4s;
-  border-radius: 24px;
+  border-radius: 34px; /* Mantido o mesmo para não aumentar verticalmente */
 }
 
 .slider:before {
   position: absolute;
   content: "";
-  height: 18px;
-  width: 18px;
-  left: 3px;
-  bottom: 3px;
+  height: 26px; /* Mantido o mesmo para não aumentar verticalmente */
+  width: 26px; /* Mantido o mesmo para não aumentar verticalmente */
+  left: 4px;
+  bottom: 4px;
   background-color: white;
   transition: 0.4s;
   border-radius: 50%;
 }
 
 input:checked + .slider {
-background-color: #2196F3;
+  background-color: #2196F3;
 }
 
 input:focus + .slider {
-box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #2196F3;
 }
 
 input:checked + .slider:before {
-transform: translateX(26px);
+  transform: translateX(66px); /* Aumentado para mover a bola mais para a direita */
 }
 
 /* Estilos para os ícones de sol e lua */
@@ -203,15 +203,13 @@ color: #4B0082;
   align-items: center;
   justify-content: flex-start; /* Alterando para flex-start para alinhar o conteúdo no topo */
   flex-grow: 1;
-}
-
-.logout-btn {
+}.logout-btn {
   color: #dc3545;
   border: none;
   background: none;
-  margin-top: 1rem; /* Reduzindo a margem superior para mover o botão de logout para cima */
+  margin-top: auto; /* Força o botão de logout para baixo */
   font-size: 1.25rem;
   cursor: pointer;
   transition: color 0.2s;
-  text-align: center; /* Centraliza o texto horizontalmente */
+  text-align: center;
 }

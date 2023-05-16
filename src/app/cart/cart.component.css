@@ -99,15 +99,21 @@
 .btn-secondary{
   background-color: #b1202073;
   border-color: #b1202073;
+  color: #ffffff;
 }
 
 .btn-secondary:hover{
- filter: brightness(0.70);
+  filter: brightness(0.70);
 }
 
 /* Define o estilo do botão "adicionar" quando clicado */
 .btn-secondary:active{
   background-color: #b1202073;
+}
+
+/* Define o estilo do botão de retirada no balcão */
+#retira-balcao{
+  margin-right: 1rem;
 }
 
 .cart-item-count{
