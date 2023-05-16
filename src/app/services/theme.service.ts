@@ -11,20 +11,23 @@ export class ThemeService {
 
   constructor() {
     this.loadTheme();
+    this.loadLogoImage();
   }
 
   toggleTheme(): void {
-    this.theme = this.theme === 'dark' ? 'light' : 'dark';
-    console.log('Tema atual:', this.theme);
+    const newTheme = this.theme === 'dark' ? 'light' : 'dark';
+    console.log('Tema atual:', newTheme);
 
     // Update logoImage path based on theme
-    if (this.theme === 'dark') {
+    if (newTheme === 'dark') {
       this.logoImage = 'assets/img/DinnerDeliveryWhite.png';
     } else {
       this.logoImage = 'assets/img/DinnerDelivery.png';
     }
 
+    this.theme = newTheme;
     this.setTheme();
+    this.saveTheme();
   }
 
   // Função adicionada para verificar se o tema atual é escuro
@@ -53,7 +56,17 @@ export class ThemeService {
       linkElement.href = `assets/css/${themeFile}`;
       document.head.appendChild(linkElement);
     }
+  }
 
+  private loadLogoImage(): void {
+    if (this.theme === 'dark') {
+      this.logoImage = 'assets/img/DinnerDeliveryWhite.png';
+    } else {
+      this.logoImage = 'assets/img/DinnerDelivery.png';
+    }
+  }
+
+  private saveTheme(): void {
     localStorage.setItem('theme', this.theme);
   }
 }
