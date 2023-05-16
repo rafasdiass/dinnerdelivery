@@ -112,12 +112,34 @@
   opacity: 1;
 }
 
+
+/* Estilos para os ícones de sol e lua */
+.sun-icon {
+  color: #FFD700;
+margin: 5px;
+  }
+
+  .moon-icon {
+  color: #4B0082;
+margin: 5px;
+  }
+
+  .theme-icons-container {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    width: 100%;
+
+  }
+
 /* Estilos do interruptor em formato de slide */
 .theme-toggle {
   position: relative;
   display: inline-block;
-  width: 100px; /* Aumentado para o tamanho desejado */
-  height: 34px; /* Mantido o mesmo para não aumentar verticalmente */
+  width: 42%; /* Ajustando para porcentagem */
+  height: 24px;
+  margin: 5px;
 }
 
 .theme-toggle input {
@@ -135,16 +157,16 @@
   bottom: 0;
   background-color: #ccc;
   transition: 0.4s;
-  border-radius: 34px; /* Mantido o mesmo para não aumentar verticalmente */
+  border-radius: 24px;
 }
 
 .slider:before {
   position: absolute;
   content: "";
-  height: 26px; /* Mantido o mesmo para não aumentar verticalmente */
-  width: 26px; /* Mantido o mesmo para não aumentar verticalmente */
-  left: 4px;
-  bottom: 4px;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
   background-color: white;
   transition: 0.4s;
   border-radius: 50%;
@@ -159,28 +181,9 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  transform: translateX(66px); /* Aumentado para mover a bola mais para a direita */
+  transform: translateX(26px);
 }
 
-/* Estilos para os ícones de sol e lua */
-.sun-icon {
-color: #FFD700;
-
-}
-
-.moon-icon {
-color: #4B0082;
-
-}
-
-.theme-icons-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin-bottom: 2rem; /* Adicionando margem inferior para separar do botão de logout */
-}
 
 .sidebar {
   position: fixed;
@@ -201,13 +204,20 @@ color: #4B0082;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Alterando para flex-start para alinhar o conteúdo no topo */
+  justify-content: flex-start;
   flex-grow: 1;
-}.logout-btn {
+}
+
+.logout-container { /* Novo estilo para o container do botão de logout */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.logout-btn {
   color: #dc3545;
   border: none;
   background: none;
-  margin-top: auto; /* Força o botão de logout para baixo */
   font-size: 1.25rem;
   cursor: pointer;
   transition: color 0.2s;
