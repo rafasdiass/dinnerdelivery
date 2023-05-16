@@ -67,4 +67,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   isDarkTheme(): boolean {
     return this.themeService.isDarkTheme();
   }
+
+  totalItemsInCart: number = 0;
 }
+
