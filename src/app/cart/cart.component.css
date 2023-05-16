@@ -5,25 +5,6 @@
   margin-top: 7rem;
 }
 
-/* Define o estilo do título e posiciona-o */
-#titulo{
-  margin-left: 2rem;
-  color: #ffffff; /* Texto branco total */
-}
-
-/* Define o estilo do espaço reservado para a tabela de itens */
-.table{
-  margin-top: 1rem;
-  margin-bottom: 15rem;
-  margin-right: 1rem;
-}
-
-/* Define o estilo para o total e os botões de compra e posiciona-os à direita */
-.text-right{
-  padding: 2rem 0.2rem;
-  color: #ffffff; /* Texto branco total */
-}
-
 /* Define o estilo do carrinho de compras */
 .cart {
   background-color: rgb(226, 24, 24);
@@ -77,8 +58,8 @@
   width: 100px;
 }
 
-/* Define o estilo do botão de retirada no balcão */
-#retira-balcao{
+/* Define o estilo dos botões "adicionar" e "finalizar compra" */
+.btn{
   margin-right: 1rem;
 }
 
@@ -86,7 +67,6 @@
 .btn-outline-primary{
   background-color: #A52A2A;
   border-color: #b1202073;
-  color: #ffffff;
   margin-right: 1rem;
 }
 
@@ -95,54 +75,51 @@
   filter: brightness(0.70);
 }
 
+
+/* CONTINUAR COMPRA */
+.btn-primary{
+  background-color: #A52A2A;
+  border-color: #b1202073;
+  color: #ffffff;
+}
+
+/* Define o estilo do botão "contuinuar compra" quando o mouse está sobre ele */
+.btn-primary:hover{
+  filter: brightness(0.70);
+}
+
 /* Define o estilo do botão de incremento e decremento quando clicado */
 .btn-outline-primary:active{
   background-color: #b1202073;
 }
 
-/* Define o estilo dos botões "adicionar" e "finalizar compra" */
-.btn{
-  margin-right: 1rem;
-}
-
-/* Define o estilo do botão "adicionar" */
-.btn-primary{
-  background-color: #A52A2A;
-  border-color: #b1202073;
-}
-
-/* Define o estilo do botão "adicionar" quando o mouse está sobre ele */
-.btn-primary:hover{
-  filter: brightness(0.70);
-}
-
-/* Define o estilo do botão "adicionar" quando clicado */
+/* Define o estilo do botão "contuinuar compra" quando clicado */
 .btn-primary:active{
   background-color: #b1202073;
 }
 
+/* ADICIONAR ITENS */
 .btn-secondary{
-  background-color: #b1202073;
+  background-color: #c43030;
   border-color: #b1202073;
   color: #ffffff;
 }
 
+/* Define o estilo do botão "contuinuar compra" quando o mouse está sobre ele */
 .btn-secondary:hover{
- filter: brightness(0.70);
- 
+  filter: brightness(0.70);
 }
 
-/* Define o estilo do botão "adicionar" quando clicado */
+/* Define o estilo do botão "adicionar itens" quando clicado */
 .btn-secondary:active{
   background-color: #b1202073;
 }
 
+/* Define o estilo do botão de retirada no balcão */
+#retira-balcao{
+  margin-right: 1rem;
+}
+
 .cart-item-count{
   border-radius: 99px;
-}
-.table {
-  margin-top: 1rem;
-  margin-bottom: 15rem;
-  margin-right: 1rem;
- 
 }

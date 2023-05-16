@@ -61,7 +61,11 @@
       <label for="themeSwitch" class="slider"></label>
     </div>
     <i class="bi bi-moon-fill moon-icon" aria-label="dark-theme-icon"></i>
-    <br />
-    <button (click)="logout()">CLICQUE AQUI APRA SAIR</button>
+  </div>
+  <div class="logout-container"> <!-- Aplique a classe aqui -->
+    <button (click)="logout()" class="logout-btn">
+      <i class="bi bi-door-open-fill"></i> Logout
+    </button>
   </div>
 </div>
+

@@ -1,111 +1,221 @@
 /* light-theme.css */
-
 :root {
   --background-color: #ffffff;
   --text-color: #000000;
-
-  --input-background: #f0f0f0;
-  --footer-background: #f2f2f2;
+  --input-background: #a52a2a26;
+  --footer-background: #a52a2a73;
   --link-hover-color: #007bff;
   --cart-item-count-bg: #ff0000;
-  --icon-color: black;
+  --icon-color: white;
   --icon-hover-color: #007bff;
-  }
+  --icon-sun: #ff0000;
+  --icon-moon: #000000;
+  --sidebar-background-color: #000000; /* Definindo a cor de fundo da barra lateral */
+}
 
-  .container {
+/* Define o estilo do contêiner e organiza os itens em colunas */
+.container {
   display: flex;
   flex-direction: column;
   margin-top: 3rem;
   background-color: var(--background-color);
   color: var(--text-color);
-  }
+}
 
-  #titulo {
+/* Define o estilo do título e posiciona-o */
+#titulo {
   margin-top: 2rem;
   margin-left: 2rem;
   color: var(--text-color);
-  }
+}
 
-  .table {
+/* Define o estilo do espaço reservado para a tabela de itens */
+.table {
   margin-top: 1rem;
   margin-bottom: 15rem;
   margin-right: 1rem;
   color: var(--text-color);
-  }
+}
 
-  .text-right {
+/* Define o estilo para o total e os botões de compra e posiciona-os à direita */
+.text-right {
   padding: 2rem 0.2rem;
   color: var(--text-color);
-  }
+}
 
-  .cart {
+/* Define o estilo do carrinho de compras */
+.cart {
   background-color: var(--footer-background);
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
   color: var(--text-color);
-  }
+}
 
-  .cart-title {
+/* Define o estilo do título do carrinho */
+.cart-title {
   margin-top: 0;
   margin-bottom: 20px;
   font-size: 1.5rem;
   font-weight: bold;
   color: var(--text-color);
-  }
+}
 
-  .btn {
+/* Define o estilo dos botões "adicionar" e "finalizar compra" */
+.btn {
   margin-right: 1rem;
-  }
+}
 
-  .btn-primary {
+/* Define o estilo do botão "adicionar" */
+.btn-primary {
   background-color: var(--link-hover-color);
   border-color: var(--link-hover-color);
   color: var(--text-color);
-  }
+}
 
-  .btn-primary:hover {
+/* Define o estilo do botão "adicionar" quando o mouse está sobre ele */
+.btn-primary:hover {
   filter: brightness(0.70);
-  }
+}
 
-  .btn-primary-primary:active {
+/* Define o estilo do botão "adicionar" quando clicado */
+.btn-primary-primary:active {
   background-color: var(--link-hover-color);
-  }
+}
 
-  .btn-secondary {
+.btn-secondary {
   background-color: var(--background-color);
   border-color: var(--link-hover-color);
   color: var(--link-hover-color);
-  }
+}
 
-  .btn-secondary:hover {
+.btn-secondary:hover {
   background-color: var(--link-hover-color);
   color: var(--text-color);
-  }
+}
 
-  .cart-item-count {
+.cart-item-count {
   border-radius: 99px;
-  }
+}
 
-  .cart-items {
+/* Define o estilo dos itens no carrinho */
+.cart-items {
   margin-bottom: 20px;
   color: var(--text-color);
-  }
+}
 
-  .cart-item {
+/* Define o estilo de cada item do carrinho */
+.cart-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
   color: var(--text-color);
-  }
+}
 
-  .cart-item-name {
+/* Define o estilo do nome do item no carrinho */
+
+.cart-item-name {
   margin: 0;
   font-size: 1rem;
   color: var(--text-color);
-  }
+}
 
-  .cart-item-price {
+.cart-item-price {
+  color: var(--text-color); /* fechamento correto aqui */
+}
+
+/* Define the style of the footer */
+.footer {
+background-color: var(--footer-background);
+color: var(--text-color);
+padding: 1rem;
+}
+
+/* Define the style of the copyright text in the footer */
+.footer p {
+margin: 0;
+color: var(--text-color);
+}
+
+/* Define the style of the links in the footer */
+.footer a {
+color: var(--text-color);
+}
+
+/* Define the style of the links in the footer when the mouse is over them */
+.footer a:hover {
+color: var(--link-hover-color);
+}
+
+/* Define the style of the navigation bar */
+.navbar {
+background-color: var(--background-color);
+color: var(--text-color);
+}
+
+/* Define the style of the navigation icons */
+.navbar i {
+color: var(--icon-color);
+}
+
+/* Define the style of the navigation icons when the mouse is over them */
+.navbar i:hover {
+color: var(--icon-hover-color);
+}
+
+/* Define the style of the sidebar */
+.sidebar {
+background-color: var(--background-color);
+color: var(--text-color);
+}
+
+/* Define the style of the theme icons in the sidebar */
+.sidebar .theme-icons-container i {
+color: var(--icon-color);
+}
+
+/* Define the style of the theme icons in the sidebar when the mouse is over them */
+.sidebar .theme-icons-container i:hover {
+color: var(--icon-hover-color);
+}
+
+/* Define the style of the logout button in the sidebar */
+.sidebar button {
+background-color: var(--link-hover-color);
+color: var(--text-color);
+}
+
+/* Define the style of the logout button in the sidebar when the mouse is over it */
+.sidebar button:hover {
+filter: brightness(0.70);
+}
+
+/* Define the style of the logout button in the sidebar when it is clicked */
+.sidebar button:active {
+background-color: var(--link-hover-color);
+}
+.item-name,
+.item-price,
+.item-quantity,
+.item-subtotal {
   color: var(--text-color);
-  }
+}
+/* Define o estilo para os ícones de sol e lua */
+.sun-icon,
+.moon-icon {
+  color: var(--icon-color);
+}
+
+/* Define o estilo dos ícones de sol e lua quando o mouse está sobre eles */
+.sun-icon:hover,
+.moon-icon:hover {
+  color: var(--icon-hover-color);
+}
+
+/* Define o estilo dos ícones de sol e lua quando estão ativos */
+.sun-icon.active-icon,
+.moon-icon.active-icon {
+  color: var(--icon-hover-color);
+}
+

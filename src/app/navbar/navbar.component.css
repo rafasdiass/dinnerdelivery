@@ -13,19 +13,19 @@
 .icon-container {
   position: fixed;
   top: 10px;
-  right: 10px; /* alterado para right */
-  font-size: 30px; /* aumentado o tamanho dos ícones */
-  z-index: 1000; /* Adicionado z-index */
+  right: 10px;
+  font-size: 30px;
+  z-index: 1000;
 }
 
 .icon-container a {
-  color: #A52A2A; /* cor alterada para ff00ff */
+  color: #A52A2A;
   text-decoration: none;
   margin-right: 10px;
 }
 
 .icon-container a:hover {
-  color: #ffffff; /* cor alterada para branco ao passar o mouse */
+  color: #ffffff;
 }
 
 .cart-item-count {
@@ -48,17 +48,17 @@
   font-size: 1.25rem;
 }
 
-.sidebar {
+/*.sidebar {
   position: fixed;
   top: 0;
   right: 0;
   width: 250px;
   height: 100%;
-  background-color: #f8f9fa;
+  background-color: var(--sidebar-background-color);
   padding: 1rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-}
+} */
 
 /* Estilo do botão de alternar tema */
 .theme-switcher {
@@ -82,16 +82,17 @@
 }
 
 .btn-custom {
-  background-color: #89CFF0; /* Cor azul bebê */
-  color: #FF4500; /* Cor vermelha mais vibrante */
+  background-color: #89CFF0;
+  color: #FF4500;
   border: none;
   transition: 0.3s;
 }
 
 .btn-custom:hover {
-  background-color: #73B1D6; /* Cor azul um pouco mais escura */
-  color: #FF0000; /* Cor vermelho puro */
+  background-color: #73B1D6;
+  color: #FF0000;
 }
+
 .theme-toggle {
   display: flex;
   justify-content: space-between;
@@ -105,18 +106,40 @@
 
 .theme-icon {
   font-size: 1.5rem;
-  opacity: 0.4;
 }
 
 .active-icon {
   opacity: 1;
 }
+
+
+/* Estilos para os ícones de sol e lua */
+.sun-icon {
+  color: #FFD700;
+margin: 5px;
+  }
+
+  .moon-icon {
+  color: #4B0082;
+margin: 5px;
+  }
+
+  .theme-icons-container {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    width: 100%;
+
+  }
+
 /* Estilos do interruptor em formato de slide */
 .theme-toggle {
   position: relative;
   display: inline-block;
-  width: 50px;
+  width: 42%; /* Ajustando para porcentagem */
   height: 24px;
+  margin: 5px;
 }
 
 .theme-toggle input {
@@ -161,22 +184,42 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-/* Estilos para os ícones de sol e lua */
-.sun-icon {
-  color: #FFD700;
-  margin-right: 5px;
-}
 
-.moon-icon {
-  color: #4B0082;
-  margin-left: 5px;
-}
-
-/* Estilo para posicionar corretamente o interruptor e os ícones */
-.theme-icons-container {
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 150px; /* Reduzindo a largura para 80px */
+  height: 100%;
+  background-color: var(--sidebar-background-color);
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+  flex-grow: 1;
+}
+
+.logout-container { /* Novo estilo para o container do botão de logout */
+  width: 100%;
+  display: flex;
   justify-content: center;
 }
 
-
+.logout-btn {
+  color: #dc3545;
+  border: none;
+  background: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: color 0.2s;
+  text-align: center;
+}
