@@ -10,6 +10,7 @@
   --icon-hover-color: #007bff;
   --icon-sun: #ff0000;
   --icon-moon: #000000;
+  --sidebar-background-color: #000000; /* Definindo a cor de fundo da barra lateral */
 }
 
 /* Define o estilo do contêiner e organiza os itens em colunas */

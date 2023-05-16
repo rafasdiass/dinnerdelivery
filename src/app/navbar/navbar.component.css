@@ -48,17 +48,17 @@
   font-size: 1.25rem;
 }
 
-.sidebar {
+/*.sidebar {
   position: fixed;
   top: 0;
   right: 0;
   width: 250px;
   height: 100%;
-  background-color: #f8f9fa;
+  background-color: var(--sidebar-background-color);
   padding: 1rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-}
+} */
 
 /* Estilo do botão de alternar tema */
 .theme-switcher {
@@ -174,26 +174,44 @@ color: #4B0082;
 }
 
 .theme-icons-container {
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: center;
-width: 100%;
-}
-.logout-btn {
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  margin-bottom: 2rem; /* Adicionando margem inferior para separar do botão de logout */
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 150px; /* Reduzindo a largura para 80px */
+  height: 100%;
+  background-color: var(--sidebar-background-color);
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Alterando para flex-start para alinhar o conteúdo no topo */
+  flex-grow: 1;
+}
+
+.logout-btn {
   color: #dc3545;
   border: none;
   background: none;
-  margin-top: 2rem;
+  margin-top: 1rem; /* Reduzindo a margem superior para mover o botão de logout para cima */
   font-size: 1.25rem;
   cursor: pointer;
   transition: color 0.2s;
   text-align: center; /* Centraliza o texto horizontalmente */
-}
-
-.logout-btn i {
-  margin-right: 0.5rem;
 }
