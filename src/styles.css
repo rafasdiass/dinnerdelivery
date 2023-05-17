@@ -1,3 +1,10 @@
+*{
+  margin: 0;
+  padding: 0;
+  touch-action: manipulation; /* Faz com que dois toques acidentais na tela, não de zoom*/
+}
+
+
 body {
   background-color: var(--background-color);
   color: var(--text-color);

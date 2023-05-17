@@ -18,7 +18,7 @@ body {
   justify-items: center;
   flex-direction: column;
   display: 100%;
-  margin-top: 30px;
+  margin-top: 1rem;
 }
 
 /* Container dos produtos */
@@ -28,12 +28,12 @@ body {
   gap: 2.5%;
   align-items: center;
   justify-content: center;
-  margin-top: 3rem; /* alterado de 1rem para 3rem */
+  margin-top: 1.5rem; /* alterado de 1rem para 3rem */
 }
 
 /* tamanho item produto */
 .item {
-  height: 30rem;
+  height: 35rem;
   margin-top: 2rem;
 }
 
@@ -42,17 +42,40 @@ body {
   width: 20rem;
   height: 25rem;
   display: flex;
+  align-items: center ;
+  
+}
+.img-box{
+  width: 100%;
+  height: 100%;
+}
+/* titulo, descrição, preço e botão Adicionar ao Carrinho */
+
+.titulo-item{
+  font-weight: 700;
+  color: rgb(97, 89, 89);
+  font-size: 22;
+  margin-top: 10rem;
 }
 
-/* Container do nome, descrição, preço e botão Adicionar ao Carrinho */
-.desc-box {
-  display: flex;
-  flex-wrap: wrap;
+.desc-container {
   display: flex;
   align-items: center;
   justify-items: center;
   flex-direction: column;
-  margin-top: 1rem;
+  padding: 1rem;
+ 
+  /* margin: 0.2rem 0.2rem 0.1rem 1.5rem; */
+  
+  /* border: 1px solid #a52a2a; */
+}
+
+
+.descricao-item{
+  font-size: 10;
+  text-align: justify;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 /* Estilo das imagens dos produtos */
@@ -60,8 +83,9 @@ body {
   background-size: cover;
   background-position: center;
   width: 100%;
-  height: 36rem;
-}
+  height: 10rem;
+  position: absolute;
+ }
 
 /* Botão Adicionar ao Carrinho */
 #addItem {

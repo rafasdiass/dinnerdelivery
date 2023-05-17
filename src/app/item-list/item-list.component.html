@@ -13,16 +13,22 @@
   <div *ngFor="let item of items | filter:searchTerm" class="item">
     <div class="card">
       <div class="img-box product1" [style.background-image]="'url(' + item.product_url + ')'"></div>
-      <div class="desc-box">
-          <p class="tituloItem">{{item.name}}</p>
-          <p class="descricaoItem">{{item.description}}</p>
-          <p class="precoItem">Preço: R$ {{ item.unit_price.toFixed(2).toString().replace('.', ',') }}</p>
-          <button id="addItem" (click)="addProductToCart(item.id, item.quantityCart)">Adicionar ao carrinho<i class="bi bi-basket2"></i></button>
-        <div class="item-quantity">
-          <button id="btDiminui" (click)="decreaseQuantity(item)" [disabled]="item.quantityCart === 0" class="btn btn-danger btn-sm">-</button>
-          <span>{{item.quantityCart}}</span>
-          <button id="btAumenta" (click)="increaseQuantity(item)" [disabled]="item.quantityCart === 10" class="btn btn-danger btn-sm">+</button>
+      <div class="desc-container">
+        <div class="titulo-item">
+          <p>{{item.name}}</p>
         </div>
+        <div class="descricao-item">
+          <p>{{item.description}}</p>
+        </div>
+        <div class="preco-item">
+          <p>Preço: R$ {{ item.unit_price.toFixed(2).toString().replace('.', ',') }}</p>
+        </div>
+      </div>
+        <button id="addItem" (click)="addProductToCart(item.id, item.quantityCart)">Adicionar ao carrinho<i class="bi bi-basket2"></i></button>
+       <div class="item-quantity">
+        <button id="btDiminui" (click)="decreaseQuantity(item)" [disabled]="item.quantityCart === 0" class="btn btn-danger btn-sm">-</button>
+        <span>{{item.quantityCart}}</span>
+        <button id="btAumenta" (click)="increaseQuantity(item)" [disabled]="item.quantityCart === 10" class="btn btn-danger btn-sm">+</button>
       </div>
     </div>
   </div>
